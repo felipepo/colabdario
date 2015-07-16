@@ -39,6 +39,11 @@ public class newCourseServlet extends HttpServlet {
         dto.setCode(jsonObject.getString("code"));
         dto.setStart_date(jsonObject.getString("start_date"));
         dto.setEnd_date(jsonObject.getString("end_date"));
+        dto.setWeek_day(jsonObject.getString("week_day"));
+        dto.setnClasses(jsonObject.getString("nClasses"));
+        dto.setStart_hour(jsonObject.getString("start_hour"));
+        dto.setEnd_hour(jsonObject.getString("end_hour"));
+        
         (new databaseDAO()).insertCourse(dto);
         
         response.setContentType("application/json;charset=UTF-8");

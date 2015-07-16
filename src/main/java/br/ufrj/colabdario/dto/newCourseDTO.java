@@ -11,6 +11,10 @@ public class newCourseDTO implements Serializable {
     String code;
     String start_date;
     String end_date;
+    String week_day;
+    String nClasses;
+    String start_hour;
+    String end_hour;
 
     public String getName() {
         return name;
@@ -43,6 +47,39 @@ public class newCourseDTO implements Serializable {
     public void setEnd_date(String end_date) {
         this.end_date = end_date;
     }
+
+    public String getWeek_day() {
+        return week_day;
+    }
+
+    public void setWeek_day(String week_day) {
+        this.week_day = week_day;
+    }
+
+    public String getnClasses() {
+        return nClasses;
+    }
+
+    public void setnClasses(String nClasses) {
+        this.nClasses = nClasses;
+    }
+
+    
+    public String getStart_hour() {
+        return start_hour;
+    }
+
+    public void setStart_hour(String start_hour) {
+        this.start_hour = start_hour;
+    }
+
+    public String getEnd_hour() {
+        return end_hour;
+    }
+
+    public void setEnd_hour(String end_hour) {
+        this.end_hour = end_hour;
+    }
         
     
     
@@ -54,6 +91,10 @@ public class newCourseDTO implements Serializable {
                 .add("code", code)
                 .add("start_date", start_date)
                 .add("end_date", end_date)
+                .add("week_day", week_day)
+                .add("nClasses", nClasses)
+                .add("start_hour", start_hour)
+                .add("end_hour", end_hour)
                 .build();
         
         return objetoJSON;

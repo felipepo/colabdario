@@ -3406,6 +3406,15 @@ function newCourse(){
     var code = document.getElementsByName("codigo_disciplina")[0].value;
     var start_date = document.getElementsByName("data_inicio")[0].value;
     var end_date = document.getElementsByName("data_fim")[0].value;
+    var nClasses = document.getElementsByName("classes")[0].value;
+    var week_day = "";
+    var start_hour = "";
+    var end_hour = "";
+    for(i=0; i < nClasses; i++){
+        week_day += document.getElementsByName("week_day")[i].value + ";";
+        start_hour+= document.getElementsByName("start_hour")[i].value + ";";
+        end_hour += document.getElementsByName("end_hour")[i].value + ";";
+    }
     if (name === "") {
         return;
     }
@@ -3422,7 +3431,11 @@ function newCourse(){
         "name": name,
         "code": code,
         "start_date": start_date,
-        "end_date": end_date
+        "end_date": end_date,
+        "week_day": week_day,
+        "nClasses": nClasses,
+        "start_hour": start_hour,
+        "end_hour": end_hour
     };
     console.log("=== sendData: " + sendData);
     var data = JSON.stringify(sendData);
@@ -3445,9 +3458,10 @@ function showClassOption(){
     var num_classes = document.getElementsByName("classes")[0].value;
     document.getElementById("class_div").innerHTML ="";
     for(i=0; i< num_classes; i++){
-        document.getElementById("class_div").innerHTML += "Dia: <select> <option>Segunda</option>"+
+        document.getElementById("class_div").innerHTML += "Dia: <select name='week_day'><option>Segunda</option>"+
         "<option>Terça</option><option>Quarta</option><option>Quinta</option>"+
         "<option>Sexta</option><option>Sábado</option><option>Domingo</option></select>"+
-        "Hora (início da aula): <input type='time'> Hora (final da aula): <input type='time'><br>";
+        "Hora (início da aula): <input type='time' name='start_hour'> Hora (final da aula):"+
+        "<input type='time' name='end_hour'><br>";
     }
 }

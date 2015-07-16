@@ -51,12 +51,36 @@ public class databaseDAO extends BaseDAO {
             pstmt.executeUpdate();
             pstmt.close();
             con.close();
-            
-            insertClass(1, "Segunda-feira", "10:00","12:00");
-            //THIS FUNCTION WILL ALSO INSERT LINES ON THE CLASSES TABLE
         } catch (Exception e) {
             e.printStackTrace();
         }
+        int course_id = 0;
+        
+        try
+        {
+            Connection con2 = new BaseDAO().getConnection();
+            Statement st = con2.createStatement();
+            ResultSet res = st.executeQuery("SELECT * FROM  course_table");
+            while (res.next())
+            {
+                course_id = res.getInt("course_id");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+            
+        int nClasses = Integer.parseInt(dto.getnClasses());
+        String[] week_day;
+        week_day = dto.getWeek_day().split(";");
+        String[] start_hour;
+        start_hour = dto.getStart_hour().split(";");
+        String[] end_hour;
+        end_hour = dto.getEnd_hour().split(";");
+        for(int i = 0; i< nClasses; i++){
+            insertClass(course_id, week_day[i], start_hour[i],end_hour[i]);
+        }
+        
+        
     }
     
     void insertClass(int course_id, String week_day, String start_hour, String end_hour){
