@@ -23,6 +23,8 @@ public class databaseDAO extends BaseDAO {
             pstmt.setString(2, dto.getEmail());
             pstmt.setString(3, dto.getLogin());
             pstmt.setString(4, dto.getPassword());
+            pstmt.executeUpdate();
+            pstmt.close();
             con.close();
         } catch (Exception e) {
             e.printStackTrace();
