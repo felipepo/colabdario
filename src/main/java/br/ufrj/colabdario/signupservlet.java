@@ -25,7 +25,7 @@ public class signupservlet extends HttpServlet {
             HttpServletResponse response)
             throws ServletException, java.io.IOException {
         
-        
+        System.out.println("===========================");
         BufferedReader br = new BufferedReader(new  InputStreamReader(request.getInputStream()));
         String json = "";
         if(br != null){

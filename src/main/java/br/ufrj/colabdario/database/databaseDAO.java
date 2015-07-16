@@ -15,10 +15,11 @@ public class databaseDAO extends BaseDAO {
     public void newUser(signupDTO dto){
         try{
             Connection con = new BaseDAO().getConnection();
+            System.out.println(dto.getName());
             PreparedStatement pstmt = con.prepareStatement(
             "INSERT INTO user_table (name,email,login,password)"
                     + "VALUES (?,?,?,?);");
-            pstmt.setInt(1, Integer.parseInt(dto.getName()));
+            pstmt.setString(1, dto.getName());
             pstmt.setString(2, dto.getEmail());
             pstmt.setString(3, dto.getLogin());
             pstmt.setString(4, dto.getPassword());
