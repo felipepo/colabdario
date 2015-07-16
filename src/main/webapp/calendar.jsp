@@ -40,7 +40,7 @@
         Código da disciplina: <input type="text" name="codigo_disciplina"><br>
         Data de início:  <input type="date" name="data_inicio"><br>
         Data de fim:  <input type="date" name="data_fim"><br>
-        <button type="submit" value="Submit" onclick="Script:sendNewCourse()">Enviar</button>
+        <button type="submit" value="Submit" onclick="Script:newCourse();Script:showDiv('user_div');">Enviar</button>
     </div>
 
 
@@ -48,7 +48,7 @@
         USUÁRIO VIRÁ AQUI</br></br></br>
         LYANG</br>
         MATHEUS
-        <button type='submit' value='Nova Disciplina' name='new_course' onclick='Script:newCourse()'>Nova Disciplina</button>
+        <button type='submit' value='Nova Disciplina' name='new_course' onclick="Script:showDiv('course_div')">Nova Disciplina</button>
     </div>
     <div id="scheduler_here" class="dhx_cal_container" style='width:85%; height:100%; float:left'>
         <div class="dhx_cal_navline">
