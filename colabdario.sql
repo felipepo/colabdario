@@ -1,3 +1,16 @@
+-- Database: colabdario
+
+DROP DATABASE colabdario;
+
+CREATE DATABASE colabdario
+  WITH OWNER = postgres
+       ENCODING = 'UTF8'
+       TABLESPACE = pg_default
+       LC_COLLATE = 'pt_BR.UTF-8'
+       LC_CTYPE = 'pt_BR.UTF-8'
+       CONNECTION LIMIT = -1;
+
+
 -- Table: user_table
 
 -- DROP TABLE user_table;
@@ -19,6 +32,20 @@ ALTER TABLE user_table
 
 -- Table: course_table
 
+-- Database: colabdario
+
+DROP DATABASE colabdario;
+
+CREATE DATABASE colabdario
+  WITH OWNER = postgres
+       ENCODING = 'UTF8'
+       TABLESPACE = pg_default
+       LC_COLLATE = 'pt_BR.UTF-8'
+       LC_CTYPE = 'pt_BR.UTF-8'
+       CONNECTION LIMIT = -1;
+
+
+
 -- DROP TABLE course_table;
 
 CREATE TABLE course_table
@@ -34,5 +61,24 @@ WITH (
 );
 ALTER TABLE course_table
   OWNER TO postgres;
+
+-- Table: class_table
+
+-- DROP TABLE class_table;
+
+CREATE TABLE class_table
+(
+  course_id integer
+  class_id serial NOT NULL,
+  week_day text,
+  start_hour date,
+  end_hour date, 
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE class_table
+  OWNER TO postgres;
+
 
 

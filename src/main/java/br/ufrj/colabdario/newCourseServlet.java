@@ -24,8 +24,6 @@ public class newCourseServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, java.io.IOException {
-        
-        System.out.println("===========================");
         BufferedReader br = new BufferedReader(new  InputStreamReader(request.getInputStream()));
         String json = "";
         if(br != null){
@@ -41,7 +39,7 @@ public class newCourseServlet extends HttpServlet {
         dto.setCode(jsonObject.getString("code"));
         dto.setStart_date(jsonObject.getString("start_date"));
         dto.setEnd_date(jsonObject.getString("end_date"));
-        (new databaseDAO()).newCourse(dto);
+        (new databaseDAO()).insertCourse(dto);
         
         response.setContentType("application/json;charset=UTF-8");
         PrintWriter out = response.getWriter();

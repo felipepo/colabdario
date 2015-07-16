@@ -41,7 +41,7 @@ public class signupservlet extends HttpServlet {
         dto.setEmail(jsonObject.getString("email"));
         dto.setLogin(jsonObject.getString("login"));
         dto.setPassword(jsonObject.getString("password"));
-        (new databaseDAO()).newUser(dto);
+        (new databaseDAO()).insertUser(dto);
         
         response.setContentType("application/json;charset=UTF-8");
         PrintWriter out = response.getWriter();
