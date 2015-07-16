@@ -3388,3 +3388,49 @@ window.jQuery && function (a) {
         }
     }
 }(jQuery);
+
+function newCourse(){
+    document.getElementById('user_div').style.display = "none";
+    document.getElementById('scheduler_here').style.display = "none";
+    document.getElementById('course_div').style.display = "inline";
+}
+
+function sendNewCourse(){
+    var name = document.getElementsByName("nome_disciplina")[0].value;
+    var code = document.getElementsByName("codigo_disciplina")[0].value;
+    var start_date = document.getElementsByName("data_inicio")[0].value;
+    var end_date = document.getElementsByName("data_fim")[0].value;
+    if (name === "") {
+        return;
+    }
+    if (code === "") {
+        return;
+    }
+    if (start_date === "") {
+        return;
+    }
+    if (end_date === "") {
+        return;
+    }
+    var sendData = {
+        "name": name,
+        "code": code,
+        "start_date": start_date,
+        "end_date": end_date
+    };
+    console.log("=== sendData: " + sendData);
+    var data = JSON.stringify(sendData);
+    console.log("=== data: " + data);
+    var ajaxRequest = new XMLHttpRequest();
+    ajaxRequest.open("POST", "newCourseServlet");
+    ajaxRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    ajaxRequest.onreadystatechange =
+            function () {
+                if (ajaxRequest.readyState === 4 && ajaxRequest.status === 200) {
+                        var respostaJSON = JSON.parse(ajaxRequest.responseText);
+                        popularCamposComRespostaJSON(respostaJSON);
+                    
+                }
+            };
+    ajaxRequest.send(data);
+}
