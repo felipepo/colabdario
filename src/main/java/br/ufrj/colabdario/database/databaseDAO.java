@@ -67,15 +67,11 @@ public class databaseDAO extends BaseDAO {
                     + "VALUES (?,?,?,?);");
             pstmt.setInt(1, course_id);
             pstmt.setString(2, week_day);
-            //SimpleDateFormat format1 = new SimpleDateFormat("HH:mm");  
             java.util.Date date1 = new SimpleDateFormat("HH:mm").parse(start_hour);
-            System.out.println("========================");
             System.out.println(date1.toString());
             java.sql.Time time1 = new java.sql.Time(date1.getTime());
-            System.out.println("========================");
             System.out.println(time1.toString());
             pstmt.setTime(3,time1);
-            //SimpleDateFormat format2 = new SimpleDateFormat("HH:mm");  
             java.util.Date date2 = new SimpleDateFormat("HH:mm").parse(end_hour); 
             java.sql.Time time2 = new java.sql.Time(date2.getTime());
             pstmt.setTime(4,time2);

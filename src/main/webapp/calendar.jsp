@@ -40,6 +40,18 @@
         Código da disciplina: <input type="text" name="codigo_disciplina"><br>
         Data de início:  <input type="date" name="data_inicio"><br>
         Data de fim:  <input type="date" name="data_fim"><br>
+        Número de aulas semanais:   <select id="classes" name="classes" onChange="Script:showClassOption();">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                    </select> <br>
+                                    <div id="class_div">
+                                    </div>
         <button type="submit" value="Submit" onclick="Script:newCourse();Script:showDiv('user_div');">Enviar</button>
     </div>
 

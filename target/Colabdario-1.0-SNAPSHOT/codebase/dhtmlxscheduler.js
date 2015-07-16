@@ -3440,3 +3440,14 @@ function newCourse(){
             };
     ajaxRequest.send(data);
 }
+
+function showClassOption(){
+    var num_classes = document.getElementsByName("classes")[0].value;
+    document.getElementById("class_div").innerHTML ="";
+    for(i=0; i< num_classes; i++){
+        document.getElementById("class_div").innerHTML += "Dia: <select> <option>Segunda</option>"+
+        "<option>Terça</option><option>Quarta</option><option>Quinta</option>"+
+        "<option>Sexta</option><option>Sábado</option><option>Domingo</option></select>"+
+        "Hora (início da aula): <input type='time'> Hora (final da aula): <input type='time'><br>";
+    }
+}
