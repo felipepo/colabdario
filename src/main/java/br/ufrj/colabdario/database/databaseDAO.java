@@ -69,6 +69,8 @@ public class databaseDAO extends BaseDAO {
             e.printStackTrace();
         }
             
+        insertUserCourse(course_id, 1);
+        
         int nClasses = Integer.parseInt(dto.getnClasses());
         String[] week_day;
         week_day = dto.getWeek_day().split(";");
@@ -79,7 +81,6 @@ public class databaseDAO extends BaseDAO {
         for(int i = 0; i< nClasses; i++){
             insertClass(course_id, week_day[i], start_hour[i],end_hour[i]);
         }
-        
         
     }
     
@@ -103,6 +104,21 @@ public class databaseDAO extends BaseDAO {
             pstmt.close();
             con.close();
             
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    void insertUserCourse(int course_id, int user_id){
+        try{
+            Connection con = new BaseDAO().getConnection();
+            PreparedStatement pstmt = con.prepareStatement(
+            "INSERT INTO user_course (course_id,user_id) VALUES (?,?);");
+            pstmt.setInt(1, course_id);
+            pstmt.setInt(2, user_id);
+            pstmt.executeUpdate();
+            pstmt.close();
+            con.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
