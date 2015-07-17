@@ -57,11 +57,6 @@ public class databaseDAO extends BaseDAO {
         Calendar end = Calendar.getInstance();
         end.setTime(util_end_date);
         
-        //start e end 1(segunda) até 7(domingo)
-        SimpleDateFormat format2 = new SimpleDateFormat("u");
-        int start_day = Integer.parseInt(format2.format(sql_start_date));
-        int end_day = Integer.parseInt(format2.format(sql_end_date));
-        
         try{
             Connection con = new BaseDAO().getConnection();
             PreparedStatement pstmt = con.prepareStatement(
@@ -94,23 +89,49 @@ public class databaseDAO extends BaseDAO {
             
         insertUserCourse(course_id, 1);
         
-        SimpleDateFormat weekFormat = new SimpleDateFormat("EEE");
+        SimpleDateFormat weekFormat = new SimpleDateFormat("u");
+     
+        //ONLY USED TO PRINT weekDay
+        SimpleDateFormat weekFormat2 = new SimpleDateFormat("EEE");
         
         int nClasses = Integer.parseInt(dto.getnClasses());
         String[] week_day;
         week_day = dto.getWeek_day().split(";");
+        int[] int_week_day = new int[nClasses];
+        for (int i= 0; i < nClasses; i++){
+            if(week_day[i].equals("Segunda")){
+                int_week_day[i] = 1;
+            }
+            if(week_day[i].equals("Terça")){
+                int_week_day[i] = 2;
+            }
+            if(week_day[i].equals("Quarta")){
+                int_week_day[i] = 3;
+            }
+            if(week_day[i].equals("Quinta")){
+                int_week_day[i] = 4;
+            }
+            if(week_day[i].equals("Sexta")){
+                int_week_day[i] = 5;
+            }
+            if(week_day[i].equals("Sábado")){
+                int_week_day[i] = 6;
+            }
+            if(week_day[i].equals("Domingo")){
+                int_week_day[i] = 7;
+            }
+        }
         String[] start_hour;
         start_hour = dto.getStart_hour().split(";");
         String[] end_hour;
         end_hour = dto.getEnd_hour().split(";");
         
         for (java.util.Date date = start.getTime(); start.before(end); start.add(Calendar.DATE, 1), date = start.getTime()) {
-            String weekDay = weekFormat.format(date);
-            System.out.println("Interador de dia: "+weekDay);
+            int weekDay = Integer.parseInt( weekFormat.format(date) );
+            System.out.println("Interador de dia: "+weekFormat2.format(date));
             for(int i = 0; i< nClasses; i++){
-                String class_week_day = week_day[i].substring(0, Math.min(week_day[i].length(), 3));
-                System.out.println("===Dia da aula: "+class_week_day);
-                if( weekDay.equals(class_week_day) ){
+                System.out.println("===Dia da aula: "+week_day[i]);
+                if( weekDay == int_week_day[i] ){
                     insertClass(course_id, week_day[i], start_hour[i],end_hour[i], date);
                 }
             }
