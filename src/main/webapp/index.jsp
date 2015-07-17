@@ -55,6 +55,17 @@
         <button type="submit" value="Submit" onclick="Script:SignUp();showDiv('user_div')">Enviar</button><br>
     </div>
     
+    <div id="search_div">
+        Pesquisar disciplinas
+        Nome: <input type="text" name="login"><br>
+        Código: <input type="text" name="senha"><br>
+        <div id="result_search_div">
+        </div>
+        <button type="submit" value="Submit" onclick="">Pesquisar</button><br>
+        <button type="submit" value="Submit" onclick="showDiv('user_div')">Voltar</button><br>
+        
+    </div>
+    
     <div id="course_div" style='width:100%; height:100%; display:none'>
         Nome da disciplina:   <input type="text" name="nome_disciplina"><br>
         Código da disciplina: <input type="text" name="codigo_disciplina"><br>
@@ -81,6 +92,7 @@
         LYANG</br>
         MATHEUS
         <button type='submit' value='Nova Disciplina' name='new_course' onclick="Script:showDiv('course_div')">Nova Disciplina</button>
+        <button type='submit' value='Nova Disciplina' name='new_course' onclick="Script:showDiv('search_div')">Pesquisar Disciplina</button>
     </div>
     <div id="scheduler_here" class="dhx_cal_container" style='width:85%; height:100%; float:left'>
         <div class="dhx_cal_navline">

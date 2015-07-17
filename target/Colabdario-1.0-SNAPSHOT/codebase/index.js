@@ -40,28 +40,41 @@ function SignUp(){
 
 function showDiv(divID){
     document.getElementById(divID).style.display = "inline";
+    
     if(divID === 'user_div'){
+        document.getElementById('search_div').style.display = "none";
         document.getElementById('login_div').style.display = "none";
         document.getElementById('signup_div').style.display = "none";
         document.getElementById('course_div').style.display = "none";
         document.getElementById('scheduler_here').style.display = "inline";
     }
     if(divID === 'course_div'){
+        document.getElementById('search_div').style.display = "none";
         document.getElementById('login_div').style.display = "none";
         document.getElementById('signup_div').style.display = "none";
         document.getElementById('user_div').style.display = "none";
         document.getElementById('scheduler_here').style.display = "none";
     }
     if(divID === 'login_div'){
+        document.getElementById('search_div').style.display = "none";
         document.getElementById('course_div').style.display = "none";
         document.getElementById('signup_div').style.display = "none";
         document.getElementById('user_div').style.display = "none";
         document.getElementById('scheduler_here').style.display = "none";
     }
     if(divID === 'signup_div'){
+        document.getElementById('search_div').style.display = "none";
         document.getElementById('course_div').style.display = "none";
         document.getElementById('login_div').style.display = "none";
         document.getElementById('user_div').style.display = "none";
         document.getElementById('scheduler_here').style.display = "none";
     }
+    if(divID === 'search_div'){
+        document.getElementById('signup_div').style.display = "none";
+        document.getElementById('course_div').style.display = "none";
+        document.getElementById('login_div').style.display = "none";
+        document.getElementById('user_div').style.display = "none";
+        document.getElementById('scheduler_here').style.display = "none";
+    }
+    
 }
