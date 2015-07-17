@@ -6,6 +6,7 @@
 	<title>ColabDário</title>
 
 	<script src="codebase/dhtmlxscheduler.js" type="text/javascript" charset="utf-8"></script>
+        <script src="codebase/events.js" type="text/javascript" charset="utf-8"></script>
 	<link rel="stylesheet" href="codebase/dhtmlxscheduler.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
 	
@@ -34,7 +35,7 @@
                     dp.setTransactionMode("POST", false);
             }
     </script>
-    
+    <script src="codebase/events.js" type="text/javascript" charset="utf-8"></script>
     <div id="course_div" style='width:100%; height:100%; display:none'>
         Nome da disciplina:   <input type="text" name="nome_disciplina"><br>
         Código da disciplina: <input type="text" name="codigo_disciplina"><br>
