@@ -1,5 +1,6 @@
 package br.ufrj.colabdario.database;
 
+import br.ufrj.colabdario.dto.classDTO;
 import br.ufrj.colabdario.dto.newCourseDTO;
 import br.ufrj.colabdario.dto.signupDTO;
 import java.sql.Connection;
@@ -178,4 +179,75 @@ public class databaseDAO extends BaseDAO {
             e.printStackTrace();
         }
     }
+    
+    ArrayList<classDTO> classesOfCourse(int course_id){
+        ArrayList<classDTO> result = new ArrayList<classDTO>();
+        try
+        {
+            Connection con = new BaseDAO().getConnection();
+            PreparedStatement pst = con.prepareStatement("SELECT * FROM  class_table WHERE course_id = ?");
+            pst.setInt(1, course_id);
+            ResultSet res = pst.executeQuery();
+            classDTO dto = new classDTO();
+            while (res.next())
+            {
+                SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+                String start_hour = format.format(res.getTime("start_hour"));
+                dto.setStart_hour(start_hour);
+                String end_hour = format.format(res.getTime("end_hour"));
+                dto.setStart_hour(end_hour);
+                SimpleDateFormat format2 = new SimpleDateFormat("dd/MM/yyyy");
+                String date = format2.format(res.getTime("date"));
+                dto.setDate(date);
+                result.add(dto);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        try
+        {
+            Connection con = new BaseDAO().getConnection();
+            PreparedStatement pst = con.prepareStatement("SELECT * FROM  course_table WHERE course_id = ?");
+            pst.setInt(1, course_id);
+            ResultSet res = pst.executeQuery();
+            String name = "";
+            String code = "";
+            if (res.next())
+            {
+                name = res.getString("name");
+                code = res.getString("code");
+            }
+            for(int i = 0; i < result.size(); i++){
+                result.get(i).setName(name);
+                result.get(i).setCode(code);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+    
+    ArrayList<classDTO> classesOfUser(int user_id){
+        ArrayList<classDTO> result = new ArrayList<classDTO>();
+        ArrayList<classDTO> course_results = new ArrayList<classDTO>();
+        try
+        {
+            Connection con = new BaseDAO().getConnection();
+            PreparedStatement pst = con.prepareStatement("SELECT * FROM  user_course WHERE user_id = ?");
+            pst.setInt(1, user_id);
+            ResultSet res = pst.executeQuery();
+            int course_id = 0;
+            while (res.next())
+            {
+                course_id = res.getInt("course_id");
+                course_results = classesOfCourse(course_id);
+                result.addAll(course_results);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+    
 }
