@@ -215,11 +215,15 @@ public class databaseDAO extends BaseDAO {
             {
                 SimpleDateFormat format = new SimpleDateFormat("HH:mm");
                 String start_hour = format.format(res.getTime("start_hour"));
-                dto.setStart_hour(start_hour);
                 String end_hour = format.format(res.getTime("end_hour"));
-                dto.setStart_hour(end_hour);
                 SimpleDateFormat format2 = new SimpleDateFormat("dd/MM/yyyy");
-                String date = format2.format(res.getTime("date"));
+                String date = format2.format(res.getDate("date"));
+                String start_hour_final = date+ " " + start_hour;
+                String end_hour_final = date+ " " + end_hour;
+                dto.setName(res.getString("name"));
+                dto.setCode(res.getString("code"));
+                dto.setStart_hour(start_hour_final);
+                dto.setEnd_hour(end_hour_final);
                 dto.setDate(date);
                 result.add(dto);
             }
