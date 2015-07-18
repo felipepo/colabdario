@@ -8,6 +8,10 @@
         <servlet-name>newCourseServlet</servlet-name>
         <servlet-class>br.ufrj.colabdario.newCourseServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>loginServlet</servlet-name>
+        <servlet-class>br.ufrj.colabdario.loginServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>signupservlet</servlet-name>
         <url-pattern>/signupservlet</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>newCourseServlet</servlet-name>
         <url-pattern>/newCourseServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>loginServlet</servlet-name>
+        <url-pattern>/loginServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

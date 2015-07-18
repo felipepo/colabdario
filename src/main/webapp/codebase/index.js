@@ -85,3 +85,36 @@ function showDiv(divID){
     }
     
 }
+
+function login(){
+    var login = document.getElementsByName("login")[0].value;
+    var password = document.getElementsByName("senha")[0].value;
+    var sendData = {
+        "login": login
+    };
+    console.log("=== sendData: " + sendData);
+    var data = JSON.stringify(sendData);
+    console.log("=== data: " + data);
+    var ajaxRequest = new XMLHttpRequest();
+    ajaxRequest.open("POST", "loginServlet");
+    ajaxRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    ajaxRequest.onreadystatechange =
+            function () {
+                if (ajaxRequest.readyState === 4 && ajaxRequest.status === 200) {
+                    var respostaJSON = JSON.parse(ajaxRequest.responseText);
+                    if (password !== respostaJSON.password){
+                        alert("Senha incorreta!")
+                    }
+                    else{
+                        DisplayLoginInformation(respostaJSON);
+                    }
+                }
+            };
+    ajaxRequest.send(data);
+}
+
+function DisplayLoginInformation(response){
+    document.getElementById('user_info').innerHTML = "Nome: " + response.name + "<br>" +
+            "e-mail: " + response.email;
+    showDiv('user_div');
+}

@@ -39,7 +39,7 @@
     <div id="login_div" style="text-align:center;vertical-align:middle;width:100%;height:100%;float:left;">
         Login: <input type="text" name="login"><br>
         Senha: <input type="text" name="senha"><br>
-        <button type="submit" class="dhx_cal_today_button" style="background-color:white;" value="Submit" onclick="Script:showDiv('user_div')">Entrar</button><br>
+        <button type="submit" class="dhx_cal_today_button" style="background-color:white;" value="Submit" onclick="Script:login()">Entrar</button><br>
         <br>
         <br>
         <br>
@@ -57,8 +57,8 @@
     
     <div id="search_div">
         Pesquisar disciplinas
-        Nome: <input type="text" name="login"><br>
-        Código: <input type="text" name="senha"><br>
+        Nome: <input type="text" name="course_name"><br>
+        Código: <input type="text" name="course_code"><br>
         <div id="result_search_div">
         </div>
         <button type="submit" class="dhx_cal_today_button" value="Submit" onclick="">Pesquisar</button><br>
@@ -88,12 +88,15 @@
 
 
     <div id="user_div" style='width:15%; height:100%;float:right;text-align:center;'>
-        USUÁRIO VIRÁ AQUI</br></br></br>
-        LYANG</br>
-        MATHEUS<br>
+        <div id="user_info" style="float:top;">
+            
+        </div>
+        
+        <div style="float:bottom;">
         <button type='submit' class="dhx_cal_today_button" style="width:150px;height:32px;" value='Nova Disciplina' name='new_course' onclick="Script:showDiv('course_div')">Nova Disciplina</button><br>
         <br>
         <button type='submit' class="dhx_cal_today_button" style="width:150px;height:35px;" value='Pesquisar Disciplina' name='search_course' onclick="Script:showDiv('search_div')">Pesquisar Disciplina</button>
+        </div>
     </div>
     <div id="scheduler_here" class="dhx_cal_container" style='width:85%; height:100%; float:left'>
         <div class="dhx_cal_navline">

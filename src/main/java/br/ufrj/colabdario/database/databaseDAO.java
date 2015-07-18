@@ -16,7 +16,28 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class databaseDAO extends BaseDAO {
-    private Connection con;
+    //private Connection con;
+    
+    public signupDTO Login(String login){
+        signupDTO result = new signupDTO();
+        try
+        {
+            Connection con = new BaseDAO().getConnection();
+            PreparedStatement pst = con.prepareStatement("SELECT * FROM  user_table WHERE login = ?");
+            pst.setString(1, login);
+            ResultSet res = pst.executeQuery();
+            result.setLogin(login);
+            if (res.next())
+            {
+                result.setName(res.getString("name"));
+                result.setEmail(res.getString("email"));
+                result.setPassword(res.getString("password"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
     
     public void insertUser(signupDTO dto){
         try{
