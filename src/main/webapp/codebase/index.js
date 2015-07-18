@@ -30,8 +30,7 @@ function SignUp(){
     ajaxRequest.onreadystatechange =
             function () {
                 if (ajaxRequest.readyState === 4 && ajaxRequest.status === 200) {
-                        var respostaJSON = JSON.parse(ajaxRequest.responseText);
-                        popularCamposComRespostaJSON(respostaJSON);
+                        alert("Cadastro realizado com sucesso!");
                     
                 }
             };
@@ -68,7 +67,9 @@ function showDiv(divID){
         document.getElementById('scheduler_here').style.display = "none";
     }
     if(divID === 'signup_div'){
-        document.body.style.backgroundImage = "";
+        document.body.style.backgroundImage = "url(assets/images/login_background.jpg)";
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundSize = "cover";
         document.getElementById('search_div').style.display = "none";
         document.getElementById('course_div').style.display = "none";
         document.getElementById('login_div').style.display = "none";

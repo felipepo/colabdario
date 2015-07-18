@@ -38,8 +38,24 @@
     
     <div id="login_div" style="text-align:center;vertical-align:middle;width:100%;height:100%;float:left;">
         <img src="assets/images/colabdario.png" width="300px"><br>
-        Login: <input type="text" name="login"><br><br>
-        Senha: <input type="password" name="senha"><br>
+        <table border="0" style="margin: 0 auto;">
+                <tr>
+                    <td>
+                        Login:
+                    </td>
+                    <td>
+                        <input type="text" name="login">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Senha:
+                    </td>
+                    <td>
+                        <input type="password" name="senha">
+                    </td>
+                </tr>
+        </table>
         <button type="submit" class="dhx_cal_today_button" style="background-color:white;" value="Submit" onclick="Script:login()">Entrar</button><br>
         <br>
         <br>
@@ -48,12 +64,44 @@
         <button type="submit" class="dhx_cal_today_button" style="background-color:white;" value="Submit" onclick="Script:showDiv('signup_div')">Cadastrar</button><br>
     </div>
 
-    <div id="signup_div" style="text-align:center;float:left;">
-        Nome:   <input type="text" name="nome"><br>
-        e-mail: <input type="text" name="email"><br>
-        Login:  <input type="text" name="login"><br>
-        Senha:  <input type="password" name="senha"><br>
-        <button type="submit" class="dhx_cal_today_button" value="Submit" onclick="Script:SignUp();showDiv('user_div')">Enviar</button><br>
+    <div id="signup_div" style="text-align:center;width:100%;height:100%;float:left;">
+        <input type="image" src="assets/images/colabdario.png" style="display:block;margin: 0 0;" width="150px" onclick="showDiv('login_div')">
+        <img src="assets/images/cadastro.png">
+        <table style="margin: 0 auto;">
+            <tr>
+                <td>
+                    Nome:
+                </td>
+                <td>
+                    <input type="text" name="nome">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    e-mail:
+                </td>
+                <td>
+                    <input type="text" name="email">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Login:
+                </td>
+                <td>
+                    <input type="text" name="login">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Senha:
+                </td>
+                <td>
+                    <input type="password" name="senha">
+                </td>
+            </tr>
+        </table>
+        <button type="submit" class="dhx_cal_today_button" style="background-color:white;" value="Submit" onclick="Script:SignUp();showDiv('login_div')">Enviar</button><br>
     </div>
     
     <div id="search_div" style="text-align:center;float:left;">
@@ -70,22 +118,60 @@
     </div>
     
     <div id="course_div" style='text-align:center;width:100%; height:100%; display:none;float:left;'>
-        Nome da disciplina:   <input type="text" name="nome_disciplina"><br>
-        Código da disciplina: <input type="text" name="codigo_disciplina"><br>
-        Data de início:  <input type="date" name="data_inicio"><br>
-        Data de fim:  <input type="date" name="data_fim"><br>
-        Número de aulas semanais:   <select id="classes" class="dhx_cal_today_button" style="width:35px" name="classes" onChange="Script:showClassOption();">
-                                        <option>0</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
-                                    </select> <br>
-                                    <div id="class_div">
-                                    </div>
+        <table style="margin: 0 auto;">
+            <tr>
+                <td>
+                    Nome da disciplina:
+                </td>
+                <td>
+                    <input type="text" name="nome_disciplina">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Código da disciplina:
+                </td>
+                <td>
+                    <input type="text" name="codigo_disciplina">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Data de início:
+                </td>
+                <td>
+                    <input type="date" name="data_inicio">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Data de fim:
+                </td>
+                <td>
+                    <input type="date" name="data_fim">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Número de aulas semanais:
+                </td>
+                <td>
+                    <select id="classes" class="dhx_cal_today_button" style="width:35px" name="classes" onChange="Script:showClassOption();">
+                        <option>0</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                    </select> 
+                </td>
+            </tr>
+        </table>
+        <br>
+        <div id="class_div">
+        </div>
         <button type="submit" class="dhx_cal_today_button" value="Submit" onclick="Script:newCourse();Script:showDiv('user_div');">Enviar</button>
     </div>
 
