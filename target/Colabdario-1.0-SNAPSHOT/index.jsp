@@ -36,15 +36,15 @@
             }
     </script>
     
-    <div id="login_div">
+    <div id="login_div" class="dhx_cal_container">
         Login: <input type="text" name="login"><br>
         Senha: <input type="text" name="senha"><br>
-        <button type="submit" value="Submit" onclick="Script:showDiv('user_div')">Entrar</button><br>
+        <button type="submit" class="dhx_cal_today_button" value="Submit" onclick="Script:showDiv('user_div')">Entrar</button><br>
         <br>
         <br>
         <br>
         Não cadastrado? <br>
-        <button type="submit" value="Submit" onclick="Script:showDiv('signup_div')">Cadastrar</button><br>
+        <button type="submit" class="dhx_cal_today_button" value="Submit" onclick="Script:showDiv('signup_div')">Cadastrar</button><br>
     </div>
 
     <div id="signup_div">
@@ -52,7 +52,7 @@
         e-mail: <input type="text" name="email"><br>
         Login:  <input type="text" name="login"><br>
         Senha:  <input type="password" name="senha"><br>
-        <button type="submit" value="Submit" onclick="Script:SignUp();showDiv('user_div')">Enviar</button><br>
+        <button type="submit" class="dhx_cal_today_button" value="Submit" onclick="Script:SignUp();showDiv('user_div')">Enviar</button><br>
     </div>
     
     <div id="search_div">
@@ -61,8 +61,8 @@
         Código: <input type="text" name="senha"><br>
         <div id="result_search_div">
         </div>
-        <button type="submit" value="Submit" onclick="">Pesquisar</button><br>
-        <button type="submit" value="Submit" onclick="showDiv('user_div')">Voltar</button><br>
+        <button type="submit" class="dhx_cal_today_button" value="Submit" onclick="">Pesquisar</button><br>
+        <button type="submit" class="dhx_cal_today_button" value="Submit" onclick="showDiv('user_div')">Voltar</button><br>
         
     </div>
     
@@ -83,16 +83,17 @@
                                     </select> <br>
                                     <div id="class_div">
                                     </div>
-        <button type="submit" value="Submit" onclick="Script:newCourse();Script:showDiv('user_div');">Enviar</button>
+        <button type="submit" class="dhx_cal_today_button" value="Submit" onclick="Script:newCourse();Script:showDiv('user_div');">Enviar</button>
     </div>
 
 
-    <div id="user_div" style='width:15%; height:100%; float:left;'>
+    <div id="user_div" style='width:15%; height:100%;float:right;text-align:center;'>
         USUÁRIO VIRÁ AQUI</br></br></br>
         LYANG</br>
-        MATHEUS
-        <button type='submit' value='Nova Disciplina' name='new_course' onclick="Script:showDiv('course_div')">Nova Disciplina</button>
-        <button type='submit' value='Nova Disciplina' name='new_course' onclick="Script:showDiv('search_div')">Pesquisar Disciplina</button>
+        MATHEUS<br>
+        <button type='submit' class="dhx_cal_today_button" style="width:150px;height:32px;" value='Nova Disciplina' name='new_course' onclick="Script:showDiv('course_div')">Nova Disciplina</button><br>
+        <br>
+        <button type='submit' class="dhx_cal_today_button" style="width:150px;height:35px;" value='Pesquisar Disciplina' name='search_course' onclick="Script:showDiv('search_div')">Pesquisar Disciplina</button>
     </div>
     <div id="scheduler_here" class="dhx_cal_container" style='width:85%; height:100%; float:left'>
         <div class="dhx_cal_navline">
