@@ -138,8 +138,27 @@ function searchCourse(){
             function () {
                 if (ajaxRequest.readyState === 4 && ajaxRequest.status === 200) {
                         var respostaJSON = JSON.parse(ajaxRequest.responseText);
-                        popularCamposComRespostaJSON(respostaJSON);
+                        displaySearchInformation(respostaJSON);
                 }
             };
     ajaxRequest.send(data);
 }
+
+function clearTable() {
+    $("#tableSearch>tbody").html("");
+}
+
+function displaySearchInformation(response){
+    clearTable();
+    var tbody = $("#tableSearch>tbody");
+    $.each(response, function (index, value) {
+        var columns = "";
+        columns += '<td>' + value.course_id + '</td>';
+        columns += '<td>' + value.name + '</td>';
+        columns += '<td>' + value.code + '</td>';
+        columns += '<td><button type="submit" class="dhx_cal_today_button" style="background-color:#70DB70;" value="Submit" onclick="doButtonDelete(' + parseInt(value.id, 10) + ')">Adicionar</button></td>';
+        var row = '<tr id="row' + value.course_id + '">' + columns + '</tr>';
+        tbody.append(row);
+    });
+}
+

@@ -4,6 +4,8 @@
     <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 	<title>ColabDário</title>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 	<script src="codebase/dhtmlxscheduler.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" src="codebase/index.js"></script>
@@ -112,9 +114,21 @@
             <option>Código</option>
         </select>
         <input type="text" name="info" onkeyup="Script:searchCourse();"><br>
-        <div id="result_search_div">
-        </div>
+        <table id="tableSearch" style="margin: 0 auto;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Código</th>
+                    <th>Adicionar</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
         <button type="submit" class="dhx_cal_today_button" value="Submit" onclick="showDiv('user_div')">Voltar</button><br>
+        <button type="submit" class="dhx_cal_today_button" value="Submit" onclick="clearTable();">Limpar</button><br>
         
     </div>
     

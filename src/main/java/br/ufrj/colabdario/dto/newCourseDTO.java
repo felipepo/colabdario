@@ -7,6 +7,7 @@ import javax.json.Json;
 import javax.json.JsonObject;
 
 public class newCourseDTO implements Serializable {
+    String course_id;
     String name;
     String code;
     String start_date;
@@ -16,6 +17,14 @@ public class newCourseDTO implements Serializable {
     String start_hour;
     String end_hour;
 
+    public String getCourse_id() {
+        return course_id;
+    }
+
+    public void setCourse_id(String course_id) {
+        this.course_id = course_id;
+    }
+    
     public String getName() {
         return name;
     }
@@ -87,6 +96,7 @@ public class newCourseDTO implements Serializable {
     
     public JsonObject toJSON(){
         objetoJSON = Json.createObjectBuilder()
+                .add("course_id", course_id)
                 .add("name", name)
                 .add("code", code)
                 .add("start_date", start_date)

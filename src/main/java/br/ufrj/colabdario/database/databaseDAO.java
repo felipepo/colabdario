@@ -287,11 +287,20 @@ public class databaseDAO extends BaseDAO {
             PreparedStatement pst = con.prepareStatement("SELECT * FROM  course_table WHERE "+query+" = ?");
             pst.setString(1, info);
             ResultSet res = pst.executeQuery();
+            System.out.println("=====DataBase: query "+query);
             while (res.next())
             {
                 newCourseDTO dto = new newCourseDTO();
+                System.out.println("=====DataBase: Name "+res.getString("name"));
+                dto.setCourse_id(Integer.toString(res.getInt("course_id")));
                 dto.setName(res.getString("name"));
                 dto.setCode(res.getString("code"));
+                dto.setStart_date("null");
+                dto.setEnd_date("null");
+                dto.setWeek_day("null");
+                dto.setnClasses("null");
+                dto.setStart_hour("null");
+                dto.setEnd_hour("null");
                 result.add(dto);
             }
         } catch (Exception e) {

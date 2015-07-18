@@ -2,6 +2,7 @@ package br.ufrj.colabdario;
 
 import br.ufrj.colabdario.database.databaseDAO;
 import br.ufrj.colabdario.dto.newCourseDTO;
+import org.json.JSONArray;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -41,11 +42,16 @@ public class searchServlet extends HttpServlet {
         ArrayList<newCourseDTO> result = new ArrayList<newCourseDTO>();
         result = (new databaseDAO()).searchCourse(criteria, info);
         
-        newCourseDTO dto = new newCourseDTO();
+        JSONArray jsonArray = new JSONArray();
+        for (int i=0; i < result.size(); i++) {
+            System.out.println("Um elemento: "+result.get(i).toString());
+            jsonArray.put(result.get(i).toString());
+        }
+        System.out.println("===========ArrayFinal:"+result.toString());
         
         response.setContentType("application/json;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        out.print(dto.toString());
+        out.print(result.toString());
         out.flush();
         }
     }
