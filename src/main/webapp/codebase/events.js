@@ -15,8 +15,11 @@
 
 function populateEvents(){
     console.log("=== Populating Calendar");
+    var id= {"userId" : 1};
+    var data = JSON.stringify(id)
+    console.log(data);
     var ajaxRequest = new XMLHttpRequest();
-    ajaxRequest.open("POST", "loadcalendarservlet");
+    ajaxRequest.open("POST", "calendarServlet");
     ajaxRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     ajaxRequest.onreadystatechange =
             function () {

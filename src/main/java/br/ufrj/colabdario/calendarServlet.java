@@ -41,29 +41,39 @@ public class calendarServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            System.out.println("====== Initializing calendar Servlet");
             /* TODO output your page here. You may use following sample code. */
             BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream()));
             String json = "";
             if (br != null) {
                 json = br.readLine();
             }
-
+            System.out.println("Object Json Read = " + json);
             JsonReader reader = Json.createReader(new StringReader(json));
             JsonObject jsonObject = reader.readObject();
             reader.close();
             
-            int userId = jsonObject.getInt("userID");
+            int userId = jsonObject.getInt("userId");
+            System.out.println("Extracted user ID = "+userId);
+            //int userId =1;
             //Creating database DAO.
             databaseDAO dao = new databaseDAO();
             ArrayList dtoArray;
             //Getting all the classes related to the user.
             dtoArray = dao.classesOfUser(userId);
+            System.out.println("Number of classes loaded = " +dtoArray.size());
             String responseArray = "[";
             //Loading the response string
             for(int i = 0; i < dtoArray.size()-1;i++){
+//
+//                System.out.println(responseArray);
+//                System.out.println(responseArray);
+//                System.out.println(responseArray);
                 responseArray += dtoArray.get(i).toString()+",";
             }
+            System.out.println(responseArray);
             responseArray += dtoArray.get(dtoArray.size()) + "]";
+            //Sending the response to client.
             response.setContentType("application/json;charset=UTF-8");
             out.print(responseArray);
             out.flush();

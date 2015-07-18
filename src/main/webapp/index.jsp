@@ -7,6 +7,7 @@
 
 	<script src="codebase/dhtmlxscheduler.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" src="codebase/index.js"></script>
+        <script src="codebase/events.js" type="text/javascript" charset="utf-8"></script> 
         <link rel="stylesheet" href="codebase/dhtmlxscheduler.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
 	
@@ -94,6 +95,8 @@
         <button type='submit' class="dhx_cal_today_button" style="width:150px;height:32px;" value='Nova Disciplina' name='new_course' onclick="Script:showDiv('course_div')">Nova Disciplina</button><br>
         <br>
         <button type='submit' class="dhx_cal_today_button" style="width:150px;height:35px;" value='Pesquisar Disciplina' name='search_course' onclick="Script:showDiv('search_div')">Pesquisar Disciplina</button>
+        <br>
+        <button type='submit' class="dhx_cal_today_button" style="width:150px;height:35px;" value='Carregar Calendario' name='load_calendar' onclick="Script:populateEvents()">Carregar Calendário</button>
     </div>
     <div id="scheduler_here" class="dhx_cal_container" style='width:85%; height:100%; float:left'>
         <div class="dhx_cal_navline">
@@ -109,6 +112,7 @@
         </div>
         <div class="dhx_cal_data">
         </div>
+        <script> Script:populateEvents() </script>
     </div>
     </body>
 </html>
