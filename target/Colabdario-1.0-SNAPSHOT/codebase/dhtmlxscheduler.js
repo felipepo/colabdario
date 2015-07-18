@@ -3453,7 +3453,6 @@ function showClassOption(){
         "Hora (início da aula): <input type='time' name='start_hour'> Hora (final da aula):"+
         "<input type='time' name='end_hour'><br>";
     }
-<<<<<<< HEAD
 }
 
 function populateEvents(){
@@ -3488,6 +3487,4 @@ function populateEvents(){
                 }
             };
     ajaxRequest.send(data);
-=======
->>>>>>> 1503be6d87d16527ccfc8af54bfddd99730e104e
 }

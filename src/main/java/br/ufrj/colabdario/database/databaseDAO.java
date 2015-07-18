@@ -216,15 +216,6 @@ public class databaseDAO extends BaseDAO {
             {
                 SimpleDateFormat format = new SimpleDateFormat("HH:mm");
                 String start_hour = format.format(res.getTime("start_hour"));
-<<<<<<< HEAD
-                dto.setStart_hour(start_hour);
-                System.out.println("DTOLoading = " + start_hour);
-                String end_hour = format.format(res.getTime("end_hour"));
-                dto.setStart_hour(end_hour);
-                System.out.println("DTOLoading = " + end_hour);
-                SimpleDateFormat format2 = new SimpleDateFormat("dd/MM/yyyy");
-                String date = format2.format(res.getTime("date"));
-=======
                 String end_hour = format.format(res.getTime("end_hour"));
                 SimpleDateFormat format2 = new SimpleDateFormat("dd-MM-yyyy");
                 String date = format2.format(res.getDate("date"));
@@ -234,7 +225,6 @@ public class databaseDAO extends BaseDAO {
                 dto.setCode(res.getString("code"));
                 dto.setStart_hour(start_hour_final);
                 dto.setEnd_hour(end_hour_final);
->>>>>>> 1503be6d87d16527ccfc8af54bfddd99730e104e
                 dto.setDate(date);
                 System.out.println("DTOLoading = " + date);
                 result.add(dto);

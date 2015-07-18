@@ -9,8 +9,6 @@
         <servlet-class>br.ufrj.colabdario.newCourseServlet</servlet-class>
     </servlet>
     <servlet>
-<<<<<<< HEAD
-=======
         <servlet-name>loginServlet</servlet-name>
         <servlet-class>br.ufrj.colabdario.loginServlet</servlet-class>
     </servlet>
@@ -23,7 +21,6 @@
         <servlet-class>br.ufrj.colabdario.searchServlet</servlet-class>
     </servlet>
     <servlet>
->>>>>>> 1503be6d87d16527ccfc8af54bfddd99730e104e
         <servlet-name>calendarServlet</servlet-name>
         <servlet-class>br.ufrj.colabdario.calendarServlet</servlet-class>
     </servlet>
@@ -36,8 +33,6 @@
         <url-pattern>/newCourseServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-<<<<<<< HEAD
-=======
         <servlet-name>loginServlet</servlet-name>
         <url-pattern>/loginServlet</url-pattern>
     </servlet-mapping>
@@ -50,7 +45,6 @@
         <url-pattern>/searchServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
->>>>>>> 1503be6d87d16527ccfc8af54bfddd99730e104e
         <servlet-name>calendarServlet</servlet-name>
         <url-pattern>/calendarServlet</url-pattern>
     </servlet-mapping>
