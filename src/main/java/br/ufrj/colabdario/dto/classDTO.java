@@ -7,6 +7,14 @@ import javax.json.Json;
 import javax.json.JsonObject;
 
 public class classDTO implements Serializable {
+
+    public classDTO() {
+        this.name = "";
+        this.code = "";
+        this.start_hour = "";
+        this.end_hour = "";
+        this.date = "";
+    }
     String name;
     String code;
     String start_hour;
