@@ -65,7 +65,7 @@
     </div>
 
     <div id="signup_div" style="text-align:center;width:100%;height:100%;float:left;">
-        <input type="image" src="assets/images/colabdario.png" style="display:block;margin: 0 0;" width="150px" onclick="showDiv('login_div')">
+        <img src="assets/images/colabdario.png" style="display:block;margin: 0 0;" width="150px">
         <img src="assets/images/cadastro.png">
         <table style="margin: 0 auto;">
             <tr>
@@ -105,7 +105,7 @@
     </div>
     
     <div id="search_div" style="text-align:center;width:100%;height:100%;float:left;">
-        <input type="image" src="assets/images/colabdario.png" style="display:inline-block;margin: 0 0;" width="150px" onclick="showDiv('login_div')">
+        <input type="image" src="assets/images/colabdario.png" style="display:inline-block;margin: 0 0;" width="150px" onclick="showDiv('user_div')">
         <img src="assets/images/pesquisar_disciplina.png" style="display:inline-block;margin: 0 auto;"><br>
         <select id="search_course_options">
             <option>Nome</option>
@@ -119,7 +119,7 @@
     </div>
     
     <div id="course_div" style='text-align:center;width:100%; height:100%; display:none;float:left;'>
-        <input type="image" src="assets/images/colabdario.png" style="display:inline-block;margin: 0 0;" width="150px" onclick="showDiv('login_div')">
+        <input type="image" src="assets/images/colabdario.png" style="display:inline-block;margin: 0 0;" width="150px" onclick="showDiv('user_div')">
         <img src="assets/images/nova_disciplina2.png" style="display:inline-block;margin: 0 auto;"><br>
         <table style="margin: 0 auto;">
             <tr>
