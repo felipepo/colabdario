@@ -153,10 +153,10 @@ function displaySearchInformation(response){
     var tbody = $("#tableSearch>tbody");
     $.each(response, function (index, value) {
         var columns = "";
-        columns += '<td>' + value.course_id + '</td>';
-        columns += '<td>' + value.name + '</td>';
-        columns += '<td>' + value.code + '</td>';
-        columns += '<td><button type="submit" class="dhx_cal_today_button" style="background-color:#70DB70;" value="Submit" onclick="doButtonDelete(' + parseInt(value.id, 10) + ')">Adicionar</button></td>';
+        columns += '<td class="search_results">' + value.course_id + '</td>';
+        columns += '<td class="search_results">' + value.name + '</td>';
+        columns += '<td class="search_results">' + value.code + '</td>';
+        columns += '<td class="search_results"><button type="submit" class="dhx_cal_today_button" style="background-color:white;" value="Submit" onclick="doButtonDelete(' + parseInt(value.id, 10) + ')">Adicionar</button></td>';
         var row = '<tr id="row' + value.course_id + '">' + columns + '</tr>';
         tbody.append(row);
     });

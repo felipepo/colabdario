@@ -2110,3 +2110,12 @@ div.dhx_menu_icon {
 .dhx_mini_calendar .dhx_cal_next_button {
     top: 8px!important;
 }
+.search_results{
+    top: 23px;
+    width: 750px;
+    z-index: 2;
+    overflow: hidden;
+    color: #2F3A48;
+    border: 1px solid #CECECE;
+    border-collapse: collapse;
+}

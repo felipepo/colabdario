@@ -114,21 +114,22 @@
             <option>Código</option>
         </select>
         <input type="text" name="info" onkeyup="Script:searchCourse();"><br>
-        <table id="tableSearch" style="margin: 0 auto;">
+        <table id="tableSearch" class="search_results" style="margin: 0 auto;left: 10px;">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Código</th>
-                    <th>Adicionar</th>
+                    <th class="search_results">ID</th>
+                    <th class="search_results">Nome</th>
+                    <th class="search_results">Código</th>
+                    <th class="search_results">Adicionar</th>
                 </tr>
             </thead>
             <tbody>
                 
             </tbody>
         </table>
-        <button type="submit" class="dhx_cal_today_button" value="Submit" onclick="showDiv('user_div')">Voltar</button><br>
-        <button type="submit" class="dhx_cal_today_button" value="Submit" onclick="clearTable();">Limpar</button><br>
+        <br>
+        <button type="submit" class="dhx_cal_today_button" value="Submit" onclick="showDiv('user_div')">Voltar</button>
+        <button type="submit" class="dhx_cal_today_button" value="Submit" onclick="clearTable();">Limpar</button>
         
     </div>
     
