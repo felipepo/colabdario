@@ -61,6 +61,23 @@ public class databaseDAO extends BaseDAO {
         }
     }
     
+    public void joinCourse(String user_id, int course_id){
+        try{
+            Connection con = new BaseDAO().getConnection();
+            PreparedStatement pstmt = con.prepareStatement(
+            "INSERT INTO user_course (course_id,user_id) VALUES (?,?);");
+            pstmt.setInt(1, course_id);
+            pstmt.setInt(2, Integer.parseInt(user_id));
+            pstmt.executeUpdate();
+            pstmt.close();
+            con.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    
+    
     public void insertCourse(newCourseDTO dto) {
         
         SimpleDateFormat format1 = new SimpleDateFormat("dd/MM/yyyy");

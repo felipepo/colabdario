@@ -157,9 +157,30 @@ function displaySearchInformation(response){
         columns += '<td class="search_results">' + value.course_id + '</td>';
         columns += '<td class="search_results">' + value.name + '</td>';
         columns += '<td class="search_results">' + value.code + '</td>';
-        columns += '<td class="search_results"><button type="submit" class="dhx_cal_today_button" style="background-color:white;" value="Submit" onclick="doButtonDelete(' + parseInt(value.id, 10) + ')">Adicionar</button></td>';
+        columns += '<td class="search_results"><button type="submit" class="dhx_cal_today_button" style="background-color:white;" value="Submit" onclick="courseJoin(' + value.course_id + ')">Adicionar</button></td>';
         var row = '<tr id="row' + value.course_id + '">' + columns + '</tr>';
         tbody.append(row);
     });
 }
 
+function courseJoin(course_id){
+    var user_id = document.getElementsByName("user_id_field")[0].value;
+    var sendData = {
+        "user_id": user_id,
+        "course_id": course_id
+    };
+    console.log("=== sendData: " + sendData);
+    var data = JSON.stringify(sendData);
+    console.log("=== data: " + data);
+    var ajaxRequest = new XMLHttpRequest();
+    ajaxRequest.open("POST", "courseJoinServlet");
+    ajaxRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    ajaxRequest.onreadystatechange =
+            function () {
+                if (ajaxRequest.readyState === 4 && ajaxRequest.status === 200) {
+                    //Will have to populate calendar again!
+                    showDiv('user_div');
+                }
+            };
+    ajaxRequest.send(data);
+}
