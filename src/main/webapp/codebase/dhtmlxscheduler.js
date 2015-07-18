@@ -3454,3 +3454,37 @@ function showClassOption(){
         "<input type='time' name='end_hour'><br>";
     }
 }
+
+function populateEvents(){
+    //Implementation OK.
+    var test = {
+    start_date: "16-07-2015 09:00",
+    end_date:   "16-07-2015 12:00",
+    text:   "Meeting",
+    holder: "John", //userdata
+    room:   "5"     //userdata
+    };
+    console.log("=== Populating Calendar");
+    //scheduler.addEvent(test);
+    var id= {"userId" : 1};
+    var data = JSON.stringify(id);
+    console.log(data);
+    var ajaxRequest = new XMLHttpRequest();
+    ajaxRequest.open("POST", "calendarServlet");
+    ajaxRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    ajaxRequest.onreadystatechange =
+            function () {
+                if (ajaxRequest.readyState === 4 && ajaxRequest.status === 200) {
+                        var respostaJSON = JSON.parse(ajaxRequest.responseText);
+                        console.log("====Data receved from server");
+                        console.log(ajaxRequest.responseText);
+                        for(var i in respostaJSON){
+                            console.log(i.toString());
+                            var lesson = i;
+                            scheduler.addEvent(test);
+                        }
+                  
+                }
+            };
+    ajaxRequest.send(data);
+}

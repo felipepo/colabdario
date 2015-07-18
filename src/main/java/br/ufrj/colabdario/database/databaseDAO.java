@@ -188,6 +188,7 @@ public class databaseDAO extends BaseDAO {
             PreparedStatement pst = con.prepareStatement("SELECT * FROM  class_table WHERE course_id = ?");
             pst.setInt(1, course_id);
             ResultSet res = pst.executeQuery();
+            System.out.println("Calendar result query = "+res.toString());
             classDTO dto = new classDTO();
             while (res.next())
             {

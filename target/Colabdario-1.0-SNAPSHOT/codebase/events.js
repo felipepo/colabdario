@@ -25,11 +25,17 @@ function populateEvents(){
             function () {
                 if (ajaxRequest.readyState === 4 && ajaxRequest.status === 200) {
                         var respostaJSON = JSON.parse(ajaxRequest.responseText);
-                        for(var i = 0; i < respostaJSON.counters.lenght;i++){
+                        console.log("====Data receved from server");
+                        console.log(respostaJSON);
+                        for(var i = 0; i < respostaJSON.lenght;i++){
                             var lesson = respostaJSON.counters[i];
                             scheduler.addEvent(lesson);
                         }
                 }
             };
     ajaxRequest.send(data);
+}
+
+function createEventObject(servletObject){
+    //var sDate =
 }

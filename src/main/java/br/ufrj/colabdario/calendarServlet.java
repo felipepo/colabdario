@@ -72,7 +72,7 @@ public class calendarServlet extends HttpServlet {
                 responseArray += dtoArray.get(i).toString()+",";
             }
             System.out.println(responseArray);
-            responseArray += dtoArray.get(dtoArray.size()) + "]";
+            responseArray += dtoArray.get(dtoArray.size()-1) + "]";
             //Sending the response to client.
             response.setContentType("application/json;charset=UTF-8");
             out.print(responseArray);
