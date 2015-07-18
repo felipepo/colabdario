@@ -3389,17 +3389,6 @@ window.jQuery && function (a) {
     }
 }(jQuery);
 
-function showDiv(divID){
-    document.getElementById(divID).style.display = "inline";
-    if(divID === 'user_div'){
-        document.getElementById('course_div').style.display = "none";
-        document.getElementById('scheduler_here').style.display = "inline";
-    }
-    if(divID === 'course_div'){
-        document.getElementById('user_div').style.display = "none";
-        document.getElementById('scheduler_here').style.display = "none";
-    }
-}
 
 function newCourse(){
     var name = document.getElementsByName("nome_disciplina")[0].value;
