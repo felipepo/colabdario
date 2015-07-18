@@ -42,6 +42,7 @@ function showDiv(divID){
     document.getElementById(divID).style.display = "inline";
     
     if(divID === 'user_div'){
+        document.body.style.backgroundImage = "";
         document.getElementById('search_div').style.display = "none";
         document.getElementById('login_div').style.display = "none";
         document.getElementById('signup_div').style.display = "none";
@@ -49,6 +50,7 @@ function showDiv(divID){
         document.getElementById('scheduler_here').style.display = "inline";
     }
     if(divID === 'course_div'){
+        document.body.style.backgroundImage = "";
         document.getElementById('search_div').style.display = "none";
         document.getElementById('login_div').style.display = "none";
         document.getElementById('signup_div').style.display = "none";
@@ -56,6 +58,9 @@ function showDiv(divID){
         document.getElementById('scheduler_here').style.display = "none";
     }
     if(divID === 'login_div'){
+        document.body.style.backgroundImage = "url(assets/images/login_background.jpg)";
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundSize = "cover";
         document.getElementById('search_div').style.display = "none";
         document.getElementById('course_div').style.display = "none";
         document.getElementById('signup_div').style.display = "none";
@@ -63,6 +68,7 @@ function showDiv(divID){
         document.getElementById('scheduler_here').style.display = "none";
     }
     if(divID === 'signup_div'){
+        document.body.style.backgroundImage = "";
         document.getElementById('search_div').style.display = "none";
         document.getElementById('course_div').style.display = "none";
         document.getElementById('login_div').style.display = "none";
@@ -70,6 +76,7 @@ function showDiv(divID){
         document.getElementById('scheduler_here').style.display = "none";
     }
     if(divID === 'search_div'){
+        document.body.style.backgroundImage = "";
         document.getElementById('signup_div').style.display = "none";
         document.getElementById('course_div').style.display = "none";
         document.getElementById('login_div').style.display = "none";

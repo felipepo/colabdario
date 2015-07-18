@@ -36,15 +36,15 @@
             }
     </script>
     
-    <div id="login_div">
+    <div id="login_div" style="text-align:center;vertical-align:middle;width:100%;height:100%;float:left;">
         Login: <input type="text" name="login"><br>
         Senha: <input type="text" name="senha"><br>
-        <button type="submit" class="dhx_cal_today_button" value="Submit" onclick="Script:showDiv('user_div')">Entrar</button><br>
+        <button type="submit" class="dhx_cal_today_button" style="background-color:white;" value="Submit" onclick="Script:showDiv('user_div')">Entrar</button><br>
         <br>
         <br>
         <br>
         Não cadastrado? <br>
-        <button type="submit" class="dhx_cal_today_button" value="Submit" onclick="Script:showDiv('signup_div')">Cadastrar</button><br>
+        <button type="submit" class="dhx_cal_today_button" style="background-color:white;" value="Submit" onclick="Script:showDiv('signup_div')">Cadastrar</button><br>
     </div>
 
     <div id="signup_div">
