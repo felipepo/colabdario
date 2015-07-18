@@ -29,6 +29,7 @@ public class databaseDAO extends BaseDAO {
             result.setLogin(login);
             if (res.next())
             {
+                result.setUser_id(Integer.toString(res.getInt("user_id")));
                 result.setName(res.getString("name"));
                 result.setEmail(res.getString("email"));
                 result.setPassword(res.getString("password"));

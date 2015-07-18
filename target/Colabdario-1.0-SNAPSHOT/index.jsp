@@ -91,6 +91,9 @@
         <div id="user_info" style="float:top;">
             
         </div>
+        <div id='user_id_div' style='display:none'>
+            <input type='text' name='user_id_field'>
+        </div>
         
         <div style="float:bottom;">
         <button type='submit' class="dhx_cal_today_button" style="width:150px;height:32px;" value='Nova Disciplina' name='new_course' onclick="Script:showDiv('course_div')">Nova Disciplina</button><br>

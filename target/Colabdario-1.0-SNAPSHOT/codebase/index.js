@@ -116,5 +116,6 @@ function login(){
 function DisplayLoginInformation(response){
     document.getElementById('user_info').innerHTML = "Nome: " + response.name + "<br>" +
             "e-mail: " + response.email;
+    document.getElementsByName('user_id_field').value = response.user_id;
     showDiv('user_div');
 }

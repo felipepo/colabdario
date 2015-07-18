@@ -7,10 +7,19 @@ import javax.json.Json;
 import javax.json.JsonObject;
 
 public class signupDTO implements Serializable {
+    String user_id;
     String name;
     String email;
     String login;
     String password;
+
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
+    }
         
     public String getName() {
         return name;
@@ -48,6 +57,7 @@ public class signupDTO implements Serializable {
     
     public JsonObject toJSON(){
         objetoJSON = Json.createObjectBuilder()
+                .add("user_id", user_id)
                 .add("name", name)
                 .add("email", email)
                 .add("login", login)
