@@ -119,3 +119,26 @@ function DisplayLoginInformation(response){
     document.getElementsByName('user_id_field').value = response.user_id;
     showDiv('user_div');
 }
+
+function searchCourse(){
+    var criteria = document.getElementById("search_course_options").value;
+    var info = document.getElementsByName("info")[0].value;
+    var sendData = {
+        "criteria": criteria,
+        "info": info
+    };
+    console.log("=== sendData: " + sendData);
+    var data = JSON.stringify(sendData);
+    console.log("=== data: " + data);
+    var ajaxRequest = new XMLHttpRequest();
+    ajaxRequest.open("POST", "searchServlet");
+    ajaxRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    ajaxRequest.onreadystatechange =
+            function () {
+                if (ajaxRequest.readyState === 4 && ajaxRequest.status === 200) {
+                        var respostaJSON = JSON.parse(ajaxRequest.responseText);
+                        popularCamposComRespostaJSON(respostaJSON);
+                }
+            };
+    ajaxRequest.send(data);
+}

@@ -47,7 +47,7 @@
         <button type="submit" class="dhx_cal_today_button" style="background-color:white;" value="Submit" onclick="Script:showDiv('signup_div')">Cadastrar</button><br>
     </div>
 
-    <div id="signup_div">
+    <div id="signup_div" style="text-align:center;float:left;">
         Nome:   <input type="text" name="nome"><br>
         e-mail: <input type="text" name="email"><br>
         Login:  <input type="text" name="login"><br>
@@ -55,23 +55,25 @@
         <button type="submit" class="dhx_cal_today_button" value="Submit" onclick="Script:SignUp();showDiv('user_div')">Enviar</button><br>
     </div>
     
-    <div id="search_div">
+    <div id="search_div" style="text-align:center;float:left;">
         Pesquisar disciplinas
-        Nome: <input type="text" name="course_name"><br>
-        Código: <input type="text" name="course_code"><br>
+        <select id="search_course_options">
+            <option>Nome</option>
+            <option>Código</option>
+        </select>
+        <input type="text" name="info" onkeyup="Script:searchCourse();"><br>
         <div id="result_search_div">
         </div>
-        <button type="submit" class="dhx_cal_today_button" value="Submit" onclick="">Pesquisar</button><br>
         <button type="submit" class="dhx_cal_today_button" value="Submit" onclick="showDiv('user_div')">Voltar</button><br>
         
     </div>
     
-    <div id="course_div" style='width:100%; height:100%; display:none'>
+    <div id="course_div" style='text-align:center;width:100%; height:100%; display:none;float:left;'>
         Nome da disciplina:   <input type="text" name="nome_disciplina"><br>
         Código da disciplina: <input type="text" name="codigo_disciplina"><br>
         Data de início:  <input type="date" name="data_inicio"><br>
         Data de fim:  <input type="date" name="data_fim"><br>
-        Número de aulas semanais:   <select id="classes" name="classes" onChange="Script:showClassOption();">
+        Número de aulas semanais:   <select id="classes" class="dhx_cal_today_button" style="width:35px" name="classes" onChange="Script:showClassOption();">
                                         <option>0</option>
                                         <option>1</option>
                                         <option>2</option>

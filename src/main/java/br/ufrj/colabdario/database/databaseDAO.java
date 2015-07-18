@@ -162,7 +162,7 @@ public class databaseDAO extends BaseDAO {
         
     }
     
-    void insertClass(int course_id, String week_day, String start_hour, String end_hour, java.util.Date date){
+    public void insertClass(int course_id, String week_day, String start_hour, String end_hour, java.util.Date date){
         try{
             Connection con = new BaseDAO().getConnection();
             PreparedStatement pstmt = con.prepareStatement(
@@ -187,7 +187,7 @@ public class databaseDAO extends BaseDAO {
         }
     }
     
-    void insertUserCourse(int course_id, int user_id){
+    public void insertUserCourse(int course_id, int user_id){
         try{
             Connection con = new BaseDAO().getConnection();
             PreparedStatement pstmt = con.prepareStatement(
@@ -202,7 +202,7 @@ public class databaseDAO extends BaseDAO {
         }
     }
     
-    ArrayList<classDTO> classesOfCourse(int course_id){
+    public ArrayList<classDTO> classesOfCourse(int course_id){
         ArrayList<classDTO> result = new ArrayList<classDTO>();
         try
         {
@@ -250,7 +250,7 @@ public class databaseDAO extends BaseDAO {
         return result;
     }
     
-    ArrayList<classDTO> classesOfUser(int user_id){
+    public ArrayList<classDTO> classesOfUser(int user_id){
         ArrayList<classDTO> result = new ArrayList<classDTO>();
         ArrayList<classDTO> course_results = new ArrayList<classDTO>();
         try
@@ -265,6 +265,34 @@ public class databaseDAO extends BaseDAO {
                 course_id = res.getInt("course_id");
                 course_results = classesOfCourse(course_id);
                 result.addAll(course_results);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+    
+    public ArrayList<newCourseDTO> searchCourse(String criteria, String info){
+        ArrayList<newCourseDTO> result = new ArrayList<newCourseDTO>();
+        try
+        {
+            String query = "";
+            if (criteria.equals("Nome")){
+                query+= "name";
+            }
+            if (criteria.equals("Código")){
+                query+= "code";
+            }
+            Connection con = new BaseDAO().getConnection();
+            PreparedStatement pst = con.prepareStatement("SELECT * FROM  course_table WHERE "+query+" = ?");
+            pst.setString(1, info);
+            ResultSet res = pst.executeQuery();
+            while (res.next())
+            {
+                newCourseDTO dto = new newCourseDTO();
+                dto.setName(res.getString("name"));
+                dto.setCode(res.getString("code"));
+                result.add(dto);
             }
         } catch (Exception e) {
             e.printStackTrace();
