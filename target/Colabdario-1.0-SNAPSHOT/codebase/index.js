@@ -107,6 +107,7 @@ function login(){
                         alert("Senha incorreta!")
                     }
                     else{
+                        document.getElementsByName("user_id_field")[0].value = respostaJSON.user_id;
                         DisplayLoginInformation(respostaJSON);
                     }
                 }
