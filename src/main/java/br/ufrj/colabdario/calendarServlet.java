@@ -13,10 +13,14 @@ import java.io.StringReader;
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
+import javax.json.JsonArray;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import br.ufrj.colabdario.dto.classDTO;
+import br.ufrj.colabdario.database.databaseDAO;
+import java.util.ArrayList;
 
 /**
  *
@@ -49,7 +53,20 @@ public class calendarServlet extends HttpServlet {
             reader.close();
             
             int userId = jsonObject.getInt("userID");
-            //Add function to get the lessons from database.
+            //Creating database DAO.
+            databaseDAO dao = new databaseDAO();
+            ArrayList dtoArray;
+            //Getting all the classes related to the user.
+            dtoArray = dao.classesOfUser(userId);
+            String responseArray = "[";
+            //Loading the response string
+            for(int i = 0; i < dtoArray.size()-1;i++){
+                responseArray += dtoArray.get(i).toString()+",";
+            }
+            responseArray += dtoArray.get(dtoArray.size()) + "]";
+            response.setContentType("application/json;charset=UTF-8");
+            out.print(responseArray);
+            out.flush();
         }
     }
 

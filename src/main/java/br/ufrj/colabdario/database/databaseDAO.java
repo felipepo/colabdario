@@ -228,7 +228,7 @@ public class databaseDAO extends BaseDAO {
         return result;
     }
     
-    ArrayList<classDTO> classesOfUser(int user_id){
+    public ArrayList<classDTO> classesOfUser(int user_id){
         ArrayList<classDTO> result = new ArrayList<classDTO>();
         ArrayList<classDTO> course_results = new ArrayList<classDTO>();
         try
