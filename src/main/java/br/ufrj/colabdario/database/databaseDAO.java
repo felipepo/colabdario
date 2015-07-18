@@ -34,6 +34,9 @@ public class databaseDAO extends BaseDAO {
                 result.setEmail(res.getString("email"));
                 result.setPassword(res.getString("password"));
             }
+            pst.close();
+            res.close();
+            con.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -106,6 +109,9 @@ public class databaseDAO extends BaseDAO {
             {
                 course_id = res.getInt("course_id");
             }
+            st.close();
+            res.close();
+            con2.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -227,6 +233,9 @@ public class databaseDAO extends BaseDAO {
                 System.out.println("DTOLoading = " + date);
                 result.add(dto);
             }
+            res.close();
+            pst.close();
+            con.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -248,6 +257,9 @@ public class databaseDAO extends BaseDAO {
                 result.get(i).setName(name);
                 result.get(i).setCode(code);
             }
+            res.close();
+            pst.close();
+            con.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -270,6 +282,9 @@ public class databaseDAO extends BaseDAO {
                 course_results = classesOfCourse(course_id);
                 result.addAll(course_results);
             }
+            res.close();
+            pst.close();
+            con.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -307,6 +322,9 @@ public class databaseDAO extends BaseDAO {
                 dto.setEnd_hour("null");
                 result.add(dto);
             }
+            res.close();
+            pst.close();
+            con.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
