@@ -36,7 +36,7 @@
             }
     </script>
     
-    <div id="login_div" class="dhx_cal_container">
+    <div id="login_div">
         Login: <input type="text" name="login"><br>
         Senha: <input type="text" name="senha"><br>
         <button type="submit" class="dhx_cal_today_button" value="Submit" onclick="Script:showDiv('user_div')">Entrar</button><br>
