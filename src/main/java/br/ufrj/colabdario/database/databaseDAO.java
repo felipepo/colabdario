@@ -221,8 +221,6 @@ public class databaseDAO extends BaseDAO {
                 String date = format2.format(res.getDate("date"));
                 String start_hour_final = date+ " " + start_hour;
                 String end_hour_final = date+ " " + end_hour;
-                dto.setName(res.getString("name"));
-                dto.setCode(res.getString("code"));
                 dto.setStart_hour(start_hour_final);
                 dto.setEnd_hour(end_hour_final);
                 dto.setDate(date);
