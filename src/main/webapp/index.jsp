@@ -106,7 +106,7 @@
         <button type="submit" class="dhx_cal_today_button" style="background-color:white;" value="Submit" onclick="Script:SignUp();showDiv('login_div')">Enviar</button><br>
     </div>
     
-    <div id="search_div" style="text-align:center;width:100%;height:100%;float:left;">
+    <div id="search_div" class="dhx_cal_date" style="text-align:center;width:100%;height:100%;float:left;">
         <input type="image" src="assets/images/colabdario.png" style="display:inline-block;margin: 0 0;" width="150px" onclick="showDiv('user_div')">
         <img src="assets/images/pesquisar_disciplina.png" style="display:inline-block;margin: 0 auto;"><br>
         <select id="search_course_options">
@@ -133,7 +133,7 @@
         
     </div>
     
-    <div id="course_div" style='text-align:center;width:100%; height:100%; display:none;float:left;'>
+    <div id="course_div" class="dhx_cal_date" style='text-align:center;width:100%; height:100%; display:none;float:left;'>
         <input type="image" src="assets/images/colabdario.png" style="display:inline-block;margin: 0 0;" width="150px" onclick="showDiv('user_div')">
         <img src="assets/images/nova_disciplina2.png" style="display:inline-block;margin: 0 auto;"><br>
         <table style="margin: 0 auto;">
@@ -196,7 +196,7 @@
 
     <div id="user_div" style='width:15%; height:100%;float:right;text-align:center;'>
         <img src="assets/images/colabdario.png" width="150px">
-        <div id="user_info" style="float:top;">
+        <div id="user_info" style="margin: 0 0;float:left">
             
         </div>
         <div id='user_id_div' style='display:none'>

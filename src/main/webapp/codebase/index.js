@@ -117,8 +117,8 @@ function login(){
 }
 
 function DisplayLoginInformation(response){
-    document.getElementById('user_info').innerHTML = "Nome: " + response.name + "<br>" +
-            "e-mail: " + response.email;
+    document.getElementById('user_info').innerHTML = "<table><tr><td>Nome: " + response.name + "</td></tr><tr><td>" +
+            "e-mail: " + response.email + "</td></tr></table><br>";
     showDiv('user_div');
 }
 
