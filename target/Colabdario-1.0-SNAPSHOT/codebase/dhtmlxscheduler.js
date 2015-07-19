@@ -3391,6 +3391,7 @@ window.jQuery && function (a) {
 
 
 function newCourse(){
+    var user_id = document.getElementsByName("user_id_field")[0].value;
     var name = document.getElementsByName("nome_disciplina")[0].value;
     var code = document.getElementsByName("codigo_disciplina")[0].value;
     var start_date = document.getElementsByName("data_inicio")[0].value;
@@ -3417,6 +3418,7 @@ function newCourse(){
         return;
     }
     var sendData = {
+        "user_id": user_id,
         "name": name,
         "code": code,
         "start_date": start_date,

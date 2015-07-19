@@ -78,7 +78,7 @@ public class databaseDAO extends BaseDAO {
     
     
     
-    public void insertCourse(newCourseDTO dto) {
+    public void insertCourse(newCourseDTO dto, String user_id) {
         
         SimpleDateFormat format1 = new SimpleDateFormat("dd/MM/yyyy");
         
@@ -133,7 +133,8 @@ public class databaseDAO extends BaseDAO {
             e.printStackTrace();
         }
             
-        insertUserCourse(course_id, 1);
+        int int_user_id = Integer.parseInt(user_id);
+        insertUserCourse(course_id, int_user_id);
         
         SimpleDateFormat weekFormat = new SimpleDateFormat("u");
      

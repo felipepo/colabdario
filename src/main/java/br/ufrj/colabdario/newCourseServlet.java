@@ -35,6 +35,7 @@ public class newCourseServlet extends HttpServlet {
         reader.close();
         
         newCourseDTO dto = new newCourseDTO();
+        String user_id = jsonObject.getString("user_id");
         dto.setName(jsonObject.getString("name"));
         dto.setCode(jsonObject.getString("code"));
         dto.setStart_date(jsonObject.getString("start_date"));
@@ -45,7 +46,7 @@ public class newCourseServlet extends HttpServlet {
         dto.setEnd_hour(jsonObject.getString("end_hour"));
         
         try{
-            (new databaseDAO()).insertCourse(dto);
+            (new databaseDAO()).insertCourse(dto, user_id);
         } catch(Exception e){
             e.printStackTrace();
         }
