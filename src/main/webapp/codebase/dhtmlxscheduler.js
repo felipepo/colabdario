@@ -3458,17 +3458,7 @@ function showClassOption(){
 }
 
 function populateEvents(){
-    //Implementation OK.
-//    var test = {
-//    start_date: "16-07-2015 09:00",
-//    end_date:   "16-07-2015 12:00",
-//    text:   "Meeting",
-//    holder: "John", //userdata
-//    room:   "5"     //userdata
-//    };
     console.log("=== Populating Calendar");
-    //name":"Testes Avançados","code":"123","start_hour":"12-10-2015 08:00","end_hour":"12-10-2015 10:00","date":"12-10-2015"}
-    //scheduler.addEvent(test);
     var uId = document.getElementsByName("user_id_field")[0].value;
     var id= {"userId" : uId};
     var data = JSON.stringify(id);
@@ -3495,8 +3485,7 @@ function populateEvents(){
                                 start_date: sd,
                                 end_date: ed,
                                 text: t,
-                                holder: "John", //userdata
-                                room: "0"     //userdata
+                                holder: "Colabdario", //userdata
                             };
                             console.log(JSON.stringify(test));                            
                             scheduler.addEvent(test);
