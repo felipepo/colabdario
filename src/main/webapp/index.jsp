@@ -168,7 +168,7 @@
                     Data de início:
                 </td>
                 <td>
-                    <input type="date" id="datepicker" name="data_inicio">
+                    <input type="text" id="datepicker" name="data_inicio">
                 </td>
             </tr>
             <tr>
@@ -176,7 +176,7 @@
                     Data de fim:
                 </td>
                 <td>
-                    <input type="date" id="datepicker2" name="data_fim">
+                    <input type="text" id="datepicker2" name="data_fim">
                 </td>
             </tr>
             <tr>
