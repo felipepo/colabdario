@@ -143,6 +143,31 @@
         
     </div>
     
+    <script>
+            scheduler.attachEvent("onDblClick", function (id, e){
+                            
+                            var eventObj = scheduler.getEvent(id);
+                            var login = document.getElementsByName("login")[0].value;
+                            showDiv('redirect_div');
+                            var data= eventObj.text+" "+login;
+                            document.getElementsByName('description')[0].value =eventObj.text ;
+                            document.getElementsByName('userId')[0].value =login ;
+            })
+        </script>
+    
+     <div id="redirect_div" style="text-align:center;width:100%;height:100%;float:left;">
+        <input type="image" src="assets/images/colabdario.png" style="display:inline-block;margin: 0 0;" width="150px" onclick="showDiv('user_div')">
+        <img src="assets/images/pesquisar_disciplina.png" style="display:inline-block;margin: 0 auto;"><br>
+        <h1>Diário de Aula</h1>
+        <h> descrição evento -------- login usuário</h><br>
+        <input type="text" name="description" >
+        <input type="text" name="userId" ><br><br><br>
+        <h>Adicionar comentário:</h>
+        <input type="text" name="comment" ><br><br><br>
+        <h>Adicionar Arquivo:</h><br><br><br>
+        <input type="button" value="voltar" onclick="showDiv('user_div')">
+    </div>
+    
     <div id="course_div" style='text-align:center;width:100%; height:100%; display:none;float:left;'>
         <input type="image" src="assets/images/colabdario.png" style="display:inline-block;margin: 0 0;" width="150px" onclick="showDiv('user_div')">
         <img src="assets/images/nova_disciplina2.png" style="display:inline-block;margin: 0 auto;"><br>
@@ -217,7 +242,6 @@
         <button type='submit' class="dhx_cal_today_button" style="width:150px;height:32px;" value='Nova Disciplina' name='new_course' onclick="Script:showDiv('course_div')">Nova Disciplina</button><br>
         <br>
         <button type='submit' class="dhx_cal_today_button" style="width:150px;height:35px;" value='Pesquisar Disciplina' name='search_course' onclick="Script:showDiv('search_div')">Pesquisar Disciplina</button><br>
-        <br>
         </div>
     </div>
     <div id="scheduler_here" class="dhx_cal_container" style='width:85%; height:100%; float:left'>

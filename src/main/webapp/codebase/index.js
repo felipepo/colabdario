@@ -43,6 +43,7 @@ function showDiv(divID){
     if(divID === 'user_div'){
         document.body.style.backgroundImage = "";
         document.getElementById('search_div').style.display = "none";
+        document.getElementById('redirect_div').style.display = "none";
         document.getElementById('login_div').style.display = "none";
         document.getElementById('signup_div').style.display = "none";
         document.getElementById('course_div').style.display = "none";
@@ -52,6 +53,7 @@ function showDiv(divID){
     if(divID === 'course_div'){
         document.body.style.backgroundImage = "";
         document.getElementById('search_div').style.display = "none";
+        document.getElementById('redirect_div').style.display = "none";
         document.getElementById('login_div').style.display = "none";
         document.getElementById('signup_div').style.display = "none";
         document.getElementById('user_div').style.display = "none";
@@ -62,6 +64,7 @@ function showDiv(divID){
         document.body.style.backgroundRepeat = "no-repeat";
         document.body.style.backgroundSize = "cover";
         document.getElementById('search_div').style.display = "none";
+        document.getElementById('redirect_div').style.display = "none";
         document.getElementById('course_div').style.display = "none";
         document.getElementById('signup_div').style.display = "none";
         document.getElementById('user_div').style.display = "none";
@@ -72,6 +75,7 @@ function showDiv(divID){
         document.body.style.backgroundRepeat = "no-repeat";
         document.body.style.backgroundSize = "cover";
         document.getElementById('search_div').style.display = "none";
+        document.getElementById('redirect_div').style.display = "none";
         document.getElementById('course_div').style.display = "none";
         document.getElementById('login_div').style.display = "none";
         document.getElementById('user_div').style.display = "none";
@@ -80,6 +84,16 @@ function showDiv(divID){
     if(divID === 'search_div'){
         document.body.style.backgroundImage = "";
         document.getElementById('signup_div').style.display = "none";
+        document.getElementById('redirect_div').style.display = "none";
+        document.getElementById('course_div').style.display = "none";
+        document.getElementById('login_div').style.display = "none";
+        document.getElementById('user_div').style.display = "none";
+        document.getElementById('scheduler_here').style.display = "none";
+    }
+    if(divID === 'redirect_div'){
+        document.body.style.backgroundImage = "";
+        document.getElementById('signup_div').style.display = "none";
+        document.getElementById('search_div').style.display = "none";
         document.getElementById('course_div').style.display = "none";
         document.getElementById('login_div').style.display = "none";
         document.getElementById('user_div').style.display = "none";

@@ -3457,6 +3457,14 @@ function showClassOption(){
     }
 }
 
+(function() {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = 'index.js';
+  
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+
 function populateEvents(){
     //Implementation OK.
 //    var test = {
@@ -3502,14 +3510,8 @@ function populateEvents(){
                             scheduler.addEvent(test);
                         }
                         
+                        
                 }
             };
     ajaxRequest.send(data);
-}
-
-function populateFields(eventText,userId){
-    
-    document.getElementsByName('description')[0].value =eventText ;
-    document.getElementsByName('userId')[0].value =userId ;
-    
 }
