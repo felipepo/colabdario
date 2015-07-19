@@ -47,6 +47,7 @@ function showDiv(divID){
         document.getElementById('signup_div').style.display = "none";
         document.getElementById('course_div').style.display = "none";
         document.getElementById('scheduler_here').style.display = "inline";
+        populateEvents();
     }
     if(divID === 'course_div'){
         document.body.style.backgroundImage = "";
