@@ -242,7 +242,9 @@ public class databaseDAO extends BaseDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+        for(int i = 0; i < result.size(); i++){
+            System.out.println("DTO Loaded = " + result.get(i).toString());
+        }
         try
         {
             Connection con = new BaseDAO().getConnection();
@@ -256,8 +258,9 @@ public class databaseDAO extends BaseDAO {
                 name = res.getString("name");
                 code = res.getString("code");
                 for(int i = 0; i < result.size(); i++){
-                    result.get(i).setName(name);
-                    result.get(i).setCode(code);
+                    System.out.println("DTO Loaded = " + result.get(i).toString());
+                    (result.get(i)).setName(name);
+                    (result.get(i)).setCode(code);
                     System.out.println("DTO Loaded = " + result.get(i).toString());
                 }
             }
@@ -267,6 +270,7 @@ public class databaseDAO extends BaseDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println(result.size());
         return result;
     }
     
