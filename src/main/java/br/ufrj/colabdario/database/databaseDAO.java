@@ -217,9 +217,9 @@ public class databaseDAO extends BaseDAO {
             pst.setInt(1, course_id);
             ResultSet res = pst.executeQuery();
             System.out.println("Calendar result query = "+res.toString());
-            classDTO dto = new classDTO();
             while (res.next())
             {
+                classDTO dto = new classDTO();
                 SimpleDateFormat format = new SimpleDateFormat("HH:mm");
                 String start_hour = format.format(res.getTime("start_hour"));
                 String end_hour = format.format(res.getTime("end_hour"));
