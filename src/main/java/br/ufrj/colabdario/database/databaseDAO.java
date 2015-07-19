@@ -228,9 +228,12 @@ public class databaseDAO extends BaseDAO {
                 String start_hour_final = date+ " " + start_hour;
                 String end_hour_final = date+ " " + end_hour;
                 dto.setStart_hour(start_hour_final);
+                //System.out.println("DTOLoading = " + start_hour_final);
                 dto.setEnd_hour(end_hour_final);
+                //System.out.println("DTOLoading = " + end_hour_final);
                 dto.setDate(date);
-                System.out.println("DTOLoading = " + date);
+                //System.out.println("DTOLoading = " + date);
+                System.out.println("DTO Loaded = " + dto.toString());
                 result.add(dto);
             }
             res.close();
@@ -252,10 +255,11 @@ public class databaseDAO extends BaseDAO {
             {
                 name = res.getString("name");
                 code = res.getString("code");
-            }
-            for(int i = 0; i < result.size(); i++){
-                result.get(i).setName(name);
-                result.get(i).setCode(code);
+                for(int i = 0; i < result.size(); i++){
+                    result.get(i).setName(name);
+                    result.get(i).setCode(code);
+                    System.out.println("DTO Loaded = " + result.get(i).toString());
+                }
             }
             res.close();
             pst.close();

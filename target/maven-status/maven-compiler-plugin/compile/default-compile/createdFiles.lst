@@ -1,6 +1,6 @@
 br/ufrj/colabdario/newCourseServlet.class
-br/ufrj/colabdario/dto/newCourseDTO.class
 br/ufrj/colabdario/loginServlet.class
+br/ufrj/colabdario/dto/newCourseDTO.class
 br/ufrj/colabdario/calendarServlet.class
 br/ufrj/colabdario/signupservlet.class
 br/ufrj/colabdario/database/databaseDAO.class

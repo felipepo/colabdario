@@ -3457,16 +3457,18 @@ function showClassOption(){
 
 function populateEvents(){
     //Implementation OK.
-    var test = {
-    start_date: "16-07-2015 09:00",
-    end_date:   "16-07-2015 12:00",
-    text:   "Meeting",
-    holder: "John", //userdata
-    room:   "5"     //userdata
-    };
+//    var test = {
+//    start_date: "16-07-2015 09:00",
+//    end_date:   "16-07-2015 12:00",
+//    text:   "Meeting",
+//    holder: "John", //userdata
+//    room:   "5"     //userdata
+//    };
     console.log("=== Populating Calendar");
+    //name":"Testes Avançados","code":"123","start_hour":"12-10-2015 08:00","end_hour":"12-10-2015 10:00","date":"12-10-2015"}
     //scheduler.addEvent(test);
-    var id= {"userId" : 1};
+    var uId = document.getElementsByName("user_id_field")[0].value;
+    var id= {"userId" : uId};
     var data = JSON.stringify(id);
     console.log(data);
     var ajaxRequest = new XMLHttpRequest();
@@ -3479,11 +3481,23 @@ function populateEvents(){
                         console.log("====Data receved from server");
                         console.log(ajaxRequest.responseText);
                         for(var i in respostaJSON){
-                            console.log(i.toString());
-                            var lesson = i;
+                            var lesson = respostaJSON[i];
+                            console.log(JSON.stringify(lesson));
+                            console.log(lesson["start_hour"]);
+                            var sd = lesson["start_hour"];
+                            console.log(sd);
+                            var ed = lesson["end_hour"];
+                            var t = lesson["code"]+"-"+lesson["name"];
+                            var test = {
+                                start_date: sd,
+                                end_date: ed,
+                                text: t,
+                                holder: "John", //userdata
+                                room: "0"     //userdata
+                            };
+                            console.log(JSON.stringify(test));
                             scheduler.addEvent(test);
                         }
-                  
                 }
             };
     ajaxRequest.send(data);
