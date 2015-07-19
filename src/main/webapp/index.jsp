@@ -208,7 +208,6 @@
         <br>
         <button type='submit' class="dhx_cal_today_button" style="width:150px;height:35px;" value='Pesquisar Disciplina' name='search_course' onclick="Script:showDiv('search_div')">Pesquisar Disciplina</button><br>
         <br>
-        <button type='submit' class="dhx_cal_today_button" style="width:150px;height:35px;" value='Carregar Calendario' name='load_calendar' onclick="Script:populateEvents()">Carregar Calendário</button><br>
         </div>
     </div>
     <div id="scheduler_here" class="dhx_cal_container" style='width:85%; height:100%; float:left'>
