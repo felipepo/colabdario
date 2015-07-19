@@ -1,7 +1,7 @@
 package br.ufrj.colabdario;
 
 import br.ufrj.colabdario.database.databaseDAO;
-import br.ufrj.colabdario.dto.newCourseDTO;
+import br.ufrj.colabdario.dto.signupDTO;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -17,13 +17,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @MultipartConfig()
-public class newCourseServlet extends HttpServlet {
+public class courseJoinServlet extends HttpServlet {
 
     @Override
     public void doPost(
             HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, java.io.IOException {
+        
         BufferedReader br = new BufferedReader(new  InputStreamReader(request.getInputStream()));
         String json = "";
         if(br != null){
@@ -34,26 +35,13 @@ public class newCourseServlet extends HttpServlet {
         JsonObject jsonObject = reader.readObject();
         reader.close();
         
-        newCourseDTO dto = new newCourseDTO();
         String user_id = jsonObject.getString("user_id");
-        dto.setName(jsonObject.getString("name"));
-        dto.setCode(jsonObject.getString("code"));
-        dto.setStart_date(jsonObject.getString("start_date"));
-        dto.setEnd_date(jsonObject.getString("end_date"));
-        dto.setWeek_day(jsonObject.getString("week_day"));
-        dto.setnClasses(jsonObject.getString("nClasses"));
-        dto.setStart_hour(jsonObject.getString("start_hour"));
-        dto.setEnd_hour(jsonObject.getString("end_hour"));
-        
-        try{
-            (new databaseDAO()).insertCourse(dto, user_id);
-        } catch(Exception e){
-            e.printStackTrace();
-        }
+        int course_id = jsonObject.getInt("course_id");
+        (new databaseDAO()).joinCourse(user_id, course_id);
         
         response.setContentType("application/json;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        out.print(dto.toString());
+        out.print("ok");
         out.flush();
         }
     }

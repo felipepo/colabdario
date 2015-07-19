@@ -34,6 +34,9 @@ public class databaseDAO extends BaseDAO {
                 result.setEmail(res.getString("email"));
                 result.setPassword(res.getString("password"));
             }
+            pst.close();
+            res.close();
+            con.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -58,7 +61,24 @@ public class databaseDAO extends BaseDAO {
         }
     }
     
-    public void insertCourse(newCourseDTO dto) {
+    public void joinCourse(String user_id, int course_id){
+        try{
+            Connection con = new BaseDAO().getConnection();
+            PreparedStatement pstmt = con.prepareStatement(
+            "INSERT INTO user_course (course_id,user_id) VALUES (?,?);");
+            pstmt.setInt(1, course_id);
+            pstmt.setInt(2, Integer.parseInt(user_id));
+            pstmt.executeUpdate();
+            pstmt.close();
+            con.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    
+    
+    public void insertCourse(newCourseDTO dto, String user_id) {
         
         SimpleDateFormat format1 = new SimpleDateFormat("dd/MM/yyyy");
         
@@ -106,11 +126,15 @@ public class databaseDAO extends BaseDAO {
             {
                 course_id = res.getInt("course_id");
             }
+            st.close();
+            res.close();
+            con2.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
             
-        insertUserCourse(course_id, 1);
+        int int_user_id = Integer.parseInt(user_id);
+        insertUserCourse(course_id, int_user_id);
         
         SimpleDateFormat weekFormat = new SimpleDateFormat("u");
      
@@ -210,9 +234,10 @@ public class databaseDAO extends BaseDAO {
             PreparedStatement pst = con.prepareStatement("SELECT * FROM  class_table WHERE course_id = ?");
             pst.setInt(1, course_id);
             ResultSet res = pst.executeQuery();
-            classDTO dto = new classDTO();
+            System.out.println("Calendar result query = "+res.toString());
             while (res.next())
             {
+                classDTO dto = new classDTO();
                 SimpleDateFormat format = new SimpleDateFormat("HH:mm");
                 String start_hour = format.format(res.getTime("start_hour"));
                 String end_hour = format.format(res.getTime("end_hour"));
@@ -220,17 +245,24 @@ public class databaseDAO extends BaseDAO {
                 String date = format2.format(res.getDate("date"));
                 String start_hour_final = date+ " " + start_hour;
                 String end_hour_final = date+ " " + end_hour;
-                dto.setName(res.getString("name"));
-                dto.setCode(res.getString("code"));
                 dto.setStart_hour(start_hour_final);
+                //System.out.println("DTOLoading = " + start_hour_final);
                 dto.setEnd_hour(end_hour_final);
+                //System.out.println("DTOLoading = " + end_hour_final);
                 dto.setDate(date);
+                //System.out.println("DTOLoading = " + date);
+                System.out.println("DTO Loaded = " + dto.toString());
                 result.add(dto);
             }
+            res.close();
+            pst.close();
+            con.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+        for(int i = 0; i < result.size(); i++){
+            System.out.println("DTO Loaded = " + result.get(i).toString());
+        }
         try
         {
             Connection con = new BaseDAO().getConnection();
@@ -243,14 +275,20 @@ public class databaseDAO extends BaseDAO {
             {
                 name = res.getString("name");
                 code = res.getString("code");
+                for(int i = 0; i < result.size(); i++){
+                    System.out.println("DTO Loaded = " + result.get(i).toString());
+                    (result.get(i)).setName(name);
+                    (result.get(i)).setCode(code);
+                    System.out.println("DTO Loaded = " + result.get(i).toString());
+                }
             }
-            for(int i = 0; i < result.size(); i++){
-                result.get(i).setName(name);
-                result.get(i).setCode(code);
-            }
+            res.close();
+            pst.close();
+            con.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println(result.size());
         return result;
     }
     
@@ -270,6 +308,9 @@ public class databaseDAO extends BaseDAO {
                 course_results = classesOfCourse(course_id);
                 result.addAll(course_results);
             }
+            res.close();
+            pst.close();
+            con.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -307,6 +348,9 @@ public class databaseDAO extends BaseDAO {
                 dto.setEnd_hour("null");
                 result.add(dto);
             }
+            res.close();
+            pst.close();
+            con.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
