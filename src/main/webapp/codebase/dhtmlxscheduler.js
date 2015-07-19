@@ -3482,6 +3482,7 @@ function populateEvents(){
                         var respostaJSON = JSON.parse(ajaxRequest.responseText);
                         console.log("====Data receved from server");
                         console.log(ajaxRequest.responseText);
+                        scheduler.clearAll();
                         for(var i in respostaJSON){
                             var lesson = respostaJSON[i];
                             console.log(JSON.stringify(lesson));
@@ -3497,7 +3498,7 @@ function populateEvents(){
                                 holder: "John", //userdata
                                 room: "0"     //userdata
                             };
-                            console.log(JSON.stringify(test));
+                            console.log(JSON.stringify(test));                            
                             scheduler.addEvent(test);
                         }
                 }
