@@ -57,7 +57,7 @@ public class calendarServlet extends HttpServlet {
             JsonObject jsonObject = reader.readObject();
             reader.close();
             
-            int userId = jsonObject.getInt("userId");
+            int userId = Integer.parseInt(jsonObject.getString("userId"));
             System.out.println("Extracted user ID = "+userId);
             //int userId =1;
             //Creating database DAO.

@@ -234,9 +234,9 @@ public class databaseDAO extends BaseDAO {
             pst.setInt(1, course_id);
             ResultSet res = pst.executeQuery();
             System.out.println("Calendar result query = "+res.toString());
-            classDTO dto = new classDTO();
             while (res.next())
             {
+                classDTO dto = new classDTO();
                 SimpleDateFormat format = new SimpleDateFormat("HH:mm");
                 String start_hour = format.format(res.getTime("start_hour"));
                 String end_hour = format.format(res.getTime("end_hour"));
@@ -245,9 +245,12 @@ public class databaseDAO extends BaseDAO {
                 String start_hour_final = date+ " " + start_hour;
                 String end_hour_final = date+ " " + end_hour;
                 dto.setStart_hour(start_hour_final);
+                //System.out.println("DTOLoading = " + start_hour_final);
                 dto.setEnd_hour(end_hour_final);
+                //System.out.println("DTOLoading = " + end_hour_final);
                 dto.setDate(date);
-                System.out.println("DTOLoading = " + date);
+                //System.out.println("DTOLoading = " + date);
+                System.out.println("DTO Loaded = " + dto.toString());
                 result.add(dto);
             }
             res.close();
@@ -256,7 +259,9 @@ public class databaseDAO extends BaseDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+        for(int i = 0; i < result.size(); i++){
+            System.out.println("DTO Loaded = " + result.get(i).toString());
+        }
         try
         {
             Connection con = new BaseDAO().getConnection();
@@ -269,10 +274,12 @@ public class databaseDAO extends BaseDAO {
             {
                 name = res.getString("name");
                 code = res.getString("code");
-            }
-            for(int i = 0; i < result.size(); i++){
-                result.get(i).setName(name);
-                result.get(i).setCode(code);
+                for(int i = 0; i < result.size(); i++){
+                    System.out.println("DTO Loaded = " + result.get(i).toString());
+                    (result.get(i)).setName(name);
+                    (result.get(i)).setCode(code);
+                    System.out.println("DTO Loaded = " + result.get(i).toString());
+                }
             }
             res.close();
             pst.close();
@@ -280,6 +287,7 @@ public class databaseDAO extends BaseDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println(result.size());
         return result;
     }
     
