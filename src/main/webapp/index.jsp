@@ -154,8 +154,12 @@
                             var classHour = eventObj.start_date;
                             var login = document.getElementsByName("login")[0].value;
                             showDiv('redirect_div');
-                            document.getElementById('class_info').innerHTML = "<table><tr><td> Matéria: " + eventObj.text + "</td></tr><tr><td> Usuário: " + login + "</td></tr></table><br>";
+                            document.getElementById('class_info').innerHTML = 
+                                    "<table><tr><td> Matéria: " + eventObj.text + "</td></tr><tr><td> Usuário: " + login + "</td></tr></table><br>";
+                                    //"<br>"+'<input type="button" value="enviar" onclick="saveText(eventObj.text +'+"-"+'+classHour)" name="send_test">';
                             document.getElementById('colaborative_title').innerHTML = "<h2>"+eventObj.text +"-"+classHour +"<\h2>";
+                            eventDate = eventObj.text +"-"+classHour;
+                            loadText(eventObj.text +"-"+classHour);
             })
         </script>
     
@@ -164,7 +168,9 @@
         <h1>Diário de Aula</h1>
         <div id="class_info" style="float:top;text-align:left;">
         </div>
-        <button type="submit" class="dhx_cal_today_button" value="Submit" onclick="showDiv('user_div')">Voltar</button>
+        <button type="submit" class="dhx_cal_today_button" value="Submit" onclick="saveText()">Salvar Arquivo</button>
+        <br>
+        <button type="submit" class="dhx_cal_today_button" value="Submit" onclick="advancedEditor.setText('');showDiv('user_div')">Voltar</button>
     </div>
     
     <div id="course_div" style='text-align:center;width:100%; height:100%; display:none;float:left;'>

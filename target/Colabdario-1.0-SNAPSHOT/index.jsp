@@ -259,7 +259,10 @@
         </div>
     </div>
     
-    <div id="colaborative_div" style='width:85%; height:100%; float:left'>
+    <div id="colaborative_div" style='width:85%; height:100%; float:left; text-align: center;'>
+        <input type='text' name='colaborative_test'><br>
+        <input type="button" value="enviar" onclick="saveText()" name="send_test" onclick="saveText()">
+        <input type="button" value="carregar" name="receive_test" onclick="loadText()" >
     </div>    
     </body>
 </html>
