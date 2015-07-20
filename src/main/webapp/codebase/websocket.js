@@ -23,7 +23,7 @@ websocket.onopen = function(evt){
     };
 
 function writeToScreen(message) {
-    output.innerHTML += message + "<br>";
+    //output.innerHTML += message + "<br>";
     }
 
 function onOpen() {
