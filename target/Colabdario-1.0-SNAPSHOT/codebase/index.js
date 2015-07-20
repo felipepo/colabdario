@@ -48,6 +48,7 @@ function showDiv(divID){
         document.getElementById('signup_div').style.display = "none";
         document.getElementById('course_div').style.display = "none";
         document.getElementById('scheduler_here').style.display = "inline";
+        document.getElementById('colaborative_div').style.display = "none";
         populateEvents();
     }
     if(divID === 'course_div'){
@@ -58,6 +59,7 @@ function showDiv(divID){
         document.getElementById('signup_div').style.display = "none";
         document.getElementById('user_div').style.display = "none";
         document.getElementById('scheduler_here').style.display = "none";
+        document.getElementById('colaborative_div').style.display = "none";
     }
     if(divID === 'login_div'){
         document.body.style.backgroundImage = "url(assets/images/login_background.jpg)";
@@ -69,6 +71,7 @@ function showDiv(divID){
         document.getElementById('signup_div').style.display = "none";
         document.getElementById('user_div').style.display = "none";
         document.getElementById('scheduler_here').style.display = "none";
+        document.getElementById('colaborative_div').style.display = "none";
     }
     if(divID === 'signup_div'){
         document.body.style.backgroundImage = "url(assets/images/login_background.jpg)";
@@ -80,6 +83,7 @@ function showDiv(divID){
         document.getElementById('login_div').style.display = "none";
         document.getElementById('user_div').style.display = "none";
         document.getElementById('scheduler_here').style.display = "none";
+        document.getElementById('colaborative_div').style.display = "none";
     }
     if(divID === 'search_div'){
         document.body.style.backgroundImage = "";
@@ -89,6 +93,7 @@ function showDiv(divID){
         document.getElementById('login_div').style.display = "none";
         document.getElementById('user_div').style.display = "none";
         document.getElementById('scheduler_here').style.display = "none";
+        document.getElementById('colaborative_div').style.display = "none";
     }
     if(divID === 'redirect_div'){
         document.body.style.backgroundImage = "";
@@ -98,6 +103,7 @@ function showDiv(divID){
         document.getElementById('login_div').style.display = "none";
         document.getElementById('user_div').style.display = "none";
         document.getElementById('scheduler_here').style.display = "none";
+        document.getElementById('colaborative_div').style.display = "inline";
     }
     
 }
