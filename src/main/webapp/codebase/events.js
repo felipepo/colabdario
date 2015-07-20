@@ -3,39 +3,49 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+var advancedEditor, authorship, basicEditor, cursorManager, _;
 
+_ = Quill.require('lodash');
 
-//var eventId = scheduler.addEvent({
-//    start_date: "16-07-2015 09:00",
-//    end_date:   "16-07-2015 12:00",
-//    text:   "Meeting",
-//    holder: "John", //userdata
-//    room:   "5"     //userdata
-//});
+var nativeChange = true;
 
-function populateEvents(){
-    console.log("=== Populating Calendar");
-    var id= {"userId" : 1};
-    var data = JSON.stringify(id)
-    console.log(data);
-    var ajaxRequest = new XMLHttpRequest();
-    ajaxRequest.open("POST", "calendarServlet");
-    ajaxRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    ajaxRequest.onreadystatechange =
-            function () {
-                if (ajaxRequest.readyState === 4 && ajaxRequest.status === 200) {
-                        var respostaJSON = JSON.parse(ajaxRequest.responseText);
-                        console.log("====Data receved from server");
-                        console.log(respostaJSON);
-                        for(var i = 0; i < respostaJSON.lenght;i++){
-                            var lesson = respostaJSON.counters[i];
-                            scheduler.addEvent(lesson);
-                        }
-                }
-            };
-    ajaxRequest.send(data);
-}
+advancedEditor = new Quill('.advanced-wrapper .editor-container', {
+    modules: {
+        'authorship': {
+            authorId: 'advanced',
+            enabled: true
+        },
+        'toolbar': {
+            container: '.advanced-wrapper .toolbar-container'
+        },
+        'link-tooltip': true,
+        'image-tooltip': true,
+        'multi-cursor': true
+    },
+    styles: false,
+    theme: 'snow'
+});
 
-function createEventObject(servletObject){
-    //var sDate =
-}
+authorship = advancedEditor.getModule('authorship');
+
+authorship.addAuthor('basic', 'rgba(255,153,51,0.4)');
+
+cursorManager = advancedEditor.getModule('multi-cursor');
+
+cursorManager.setCursor('basic', 0, 'basic', 'rgba(255,153,51,0.9)');
+
+advancedEditor.on('selection-change', function (range) {
+    return console.info('advanced', 'selection', range);
+});
+
+advancedEditor.on('text-change', function (delta, source) {
+    var sourceDelta;
+    if (source === 'api') {
+        return;
+    }
+    console.info('advanced', 'text', delta, source);
+    sendText(delta);
+    nativeChange = true;
+    sourceDelta = advancedEditor.getContents();
+    return console.assert(_.isEqual(sourceDelta), "Editor diversion!", sourceDelta.ops);
+});
