@@ -44,7 +44,10 @@ function onMessage(evt) {
     console.log("received: " + evt.data);
     var jsonDelta = JSON.parse(evt.data);
     if(nativeChange === true){
+        console.log("Local changes to the file!.");
+        nativeChange = false;
         return;
     }
+     console.log("Remote changes to the file!.");
     advancedEditor.updateContents(jsonDelta);
     }

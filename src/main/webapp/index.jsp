@@ -151,9 +151,11 @@
             scheduler.attachEvent("onDblClick", function (id, e){
                             
                             var eventObj = scheduler.getEvent(id);
+                            var classHour = eventObj.start_date;
                             var login = document.getElementsByName("login")[0].value;
                             showDiv('redirect_div');
-                            document.getElementById('class_info').innerHTML = "<table><tr><td> Matéria: " + eventObj.text + "</td></tr><tr><td> Aluno: " + login + "</td></tr></table><br>";
+                            document.getElementById('class_info').innerHTML = "<table><tr><td> Matéria: " + eventObj.text + "</td></tr><tr><td> Usuário: " + login + "</td></tr></table><br>";
+                            document.getElementById('colaborative_title').innerHTML = "<h2>"+eventObj.text +"-"+classHour +"<\h2>";
             })
         </script>
     
@@ -161,10 +163,8 @@
         <input type="image" src="assets/images/colabdario.png" style="display:inline-block;margin: 0 0;" width="150px" onclick="showDiv('user_div')">
         <h1>Diário de Aula</h1>
         <div id="class_info" style="float:top;text-align:left;">
-            
         </div>
-        <h>Adicionar Arquivo:</h><br><br><br>
-        <input type="button" value="voltar" onclick="showDiv('user_div')">
+        <button type="submit" class="dhx_cal_today_button" value="Submit" onclick="showDiv('user_div')">Voltar</button>
     </div>
     
     <div id="course_div" style='text-align:center;width:100%; height:100%; display:none;float:left;'>
@@ -242,9 +242,6 @@
         <br>
         <button type='submit' class="dhx_cal_today_button" style="width:150px;height:35px;" value='Pesquisar Disciplina' name='search_course' onclick="Script:showDiv('search_div')">Pesquisar Disciplina</button><br>
         <br>
-        <a class="dhx_cal_today_button" style="width:150px;height:35px;" href='colaborative.jsp'> Espaço Colaborativo</a>
-        <br>
-        <br>
         </div>
     </div>
     <div id="scheduler_here" class="dhx_cal_container" style='width:85%; height:100%; float:left'>
@@ -264,7 +261,8 @@
     </div>
 
     <div id="colaborative_div" style='width:85%; height:100%; float:left'>
-        <div class="advanced-wrapper">
+        <div id ="colaborative_title" style="text-align:center;vertical-align:middle;width:85%;height:8%;float:left;"></div>
+        <div class="advanced-wrapper" style="width:85%;height:90%;float:left;">
             <div class="toolbar-container"><span class="ql-format-group">
                     <select title="Font" class="ql-font">
                         <option value="sans-serif" selected>Sans Serif</option>
