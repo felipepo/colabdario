@@ -205,3 +205,51 @@ function courseJoin(course_id){
             };
     ajaxRequest.send(data);
 }
+
+function saveText(){
+    var text = document.getElementsByName("colaborative_test")[0].value;
+    
+    var sendData = {
+        "text": text 
+    };
+    console.log("=== sendData: " + sendData);
+    var data = JSON.stringify(sendData);
+    console.log("=== data: " + data);
+    var ajaxRequest = new XMLHttpRequest();
+    ajaxRequest.open("POST", "saveTextServlet");
+    ajaxRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    ajaxRequest.onreadystatechange =
+            function () {
+                if (ajaxRequest.readyState === 4 && ajaxRequest.status === 200) {
+                        alert("Texto salvo com sucesso!");
+                    
+                }
+            };
+    ajaxRequest.send(data);
+    
+    
+    
+}
+
+function loadText(class_number){
+    var sendData = {
+        "file": class_number 
+    };
+    console.log("=== sendData: " + sendData);
+    var data = JSON.stringify(sendData);
+    console.log("=== data: " + data);
+    var ajaxRequest = new XMLHttpRequest();
+    ajaxRequest.open("POST", "loadTextServlet");
+    ajaxRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    ajaxRequest.onreadystatechange =
+            function () {
+                if (ajaxRequest.readyState === 4 && ajaxRequest.status === 200) {
+                        alert("Texto carregado com sucesso!");
+                        document.getElementsByName("colaborative_test")[0].value=ajaxRequest.responseText;
+                    
+                }
+            };
+    ajaxRequest.send(data);
+    
+}
+

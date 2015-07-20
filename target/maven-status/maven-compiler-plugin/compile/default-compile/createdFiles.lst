@@ -7,5 +7,6 @@ br/ufrj/colabdario/dto/newCourseDTO.class
 br/ufrj/colabdario/signupservlet.class
 br/ufrj/colabdario/dto/classDTO.class
 br/ufrj/colabdario/courseJoinServlet.class
+br/ufrj/colabdario/saveTextServlet.class
 br/ufrj/colabdario/newCourseServlet.class
 br/ufrj/colabdario/searchServlet.class

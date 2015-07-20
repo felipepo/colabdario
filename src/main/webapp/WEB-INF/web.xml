@@ -28,6 +28,14 @@
         <servlet-name>courseJoinServlet</servlet-name>
         <servlet-class>br.ufrj.colabdario.courseJoinServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>saveTextServlet</servlet-name>
+        <servlet-class>br.ufrj.colabdario.saveTextServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>loadTextServlet</servlet-name>
+        <servlet-class>br.ufrj.colabdario.loadTextServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>signupservlet</servlet-name>
         <url-pattern>/signupservlet</url-pattern>
@@ -55,6 +63,14 @@
     <servlet-mapping>
         <servlet-name>courseJoinServlet</servlet-name>
         <url-pattern>/courseJoinServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>saveTextServlet</servlet-name>
+        <url-pattern>/saveTextServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>loadTextServlet</servlet-name>
+        <url-pattern>/loadTextServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
