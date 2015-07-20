@@ -149,21 +149,16 @@
                             var eventObj = scheduler.getEvent(id);
                             var login = document.getElementsByName("login")[0].value;
                             showDiv('redirect_div');
-                            var data= eventObj.text+" "+login;
-                            document.getElementsByName('description')[0].value =eventObj.text ;
-                            document.getElementsByName('userId')[0].value =login ;
+                            document.getElementById('class_info').innerHTML = "<table><tr><td> Matéria: " + eventObj.text + "</td></tr><tr><td> Aluno: " + login + "</td></tr></table><br>";
             })
         </script>
     
-     <div id="redirect_div" style="text-align:center;width:100%;height:100%;float:left;">
+     <div id="redirect_div" style='width:15%; height:100%;float:right;text-align:center;'>
         <input type="image" src="assets/images/colabdario.png" style="display:inline-block;margin: 0 0;" width="150px" onclick="showDiv('user_div')">
-        <img src="assets/images/pesquisar_disciplina.png" style="display:inline-block;margin: 0 auto;"><br>
         <h1>Diário de Aula</h1>
-        <h> descrição evento -------- login usuário</h><br>
-        <input type="text" name="description" >
-        <input type="text" name="userId" ><br><br><br>
-        <h>Adicionar comentário:</h>
-        <input type="text" name="comment" ><br><br><br>
+        <div id="class_info" style="float:top;text-align:left;">
+            
+        </div>
         <h>Adicionar Arquivo:</h><br><br><br>
         <input type="button" value="voltar" onclick="showDiv('user_div')">
     </div>
@@ -263,5 +258,8 @@
         <div class="dhx_cal_data">
         </div>
     </div>
+    
+    <div id="colaborative_div" style='width:85%; height:100%; float:left'>
+    </div>    
     </body>
 </html>
